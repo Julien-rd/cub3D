@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 13:54:43 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/02 18:52:22 by jromann          ###   ########.fr       */
+/*   Updated: 2026/02/27 17:43:35 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,54 @@ static int	close_hook(t_user *user)
 	return (0);
 }
 
-static int	key_hook(int keycode, t_user *user)
+int mouse_hook(int x, int y, t_user *user)
 {
-	bool	moved;
+	(void)y;
+	user->vars.mouse_pos = x;
+    return (0);
+}
 
-	moved = 0;
+static int	key_release_hook(int keycode, t_user *user)
+{
+	if (keycode == 119)
+		user->vars.key_w = false;
+	if (keycode == 115)
+		user->vars.key_s = false;
+	if (keycode == 97)
+		user->vars.key_a = false;
+	if (keycode == 100)
+		user->vars.key_d = false;
+	if (keycode == 65361)
+		user->vars.key_arr_l = false;
+	if (keycode == 65363)
+		user->vars.key_arr_r = false;
+	return (0);
+}
+
+static int	key_press_hook(int keycode, t_user *user)
+{
 	if (keycode == 65307)
 		cleanup(user, SUCCESS, NULL);
 	if (keycode == 119)
-		move_forward(user, &moved);
+		user->vars.key_w = true;
 	if (keycode == 115)
-		move_backward(user, &moved);
+		user->vars.key_s = true;
 	if (keycode == 97)
-		move_left(user, &moved);
+		user->vars.key_a = true;
 	if (keycode == 100)
-		move_right(user, &moved);
+		user->vars.key_d = true;
 	if (keycode == 65361)
-		rotate_left(user, &moved);
+		user->vars.key_arr_l = true;
 	if (keycode == 65363)
-		rotate_right(user, &moved);
-	if (moved)
-	{
-		draw_ray(user);
-		mlx_put_image_to_window(user->mlx, user->mlx_win, user->img, 0, 0);
-	}
+		user->vars.key_arr_r = true;
 	return (0);
 }
 
 void	set_up_hooks(t_user *user)
 {
-	mlx_hook(user->mlx_win, 2, 1L << 0, key_hook, user);
-	mlx_hook(user->mlx_win, 17, 1L << 17, close_hook, user);
+	// mlx_mouse_hook(user->mlx_win, mouse_hook, user);
+	mlx_hook(user->mlx_win, 6, 1L << 6, mouse_hook, user);
+	mlx_hook(user->mlx_win, 2, 1L << 0, key_press_hook, user);
+	mlx_hook(user->mlx_win, 3, 1L << 1, key_release_hook, user);
+	mlx_hook(user->mlx_win, 17, 0, close_hook, user);
 }

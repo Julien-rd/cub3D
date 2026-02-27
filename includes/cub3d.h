@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/01/21 16:37:26 by jromann          ###   ########.fr       */
+/*   Updated: 2026/02/27 18:07:06 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define ERROR 1
 # define PERROR 2
 
-# define MOVE_S 0.05
+# define MOVE_S 0.01
 # define ROT_S 0.03
 
 //*************** PARSING **************//
@@ -71,16 +71,16 @@ void	set_up_hooks(t_user *user);
 
 //*************** MOVEMENT **************//
 
-void	move_forward(t_user *user, bool *flag);
-void	move_backward(t_user *user, bool *flag);
-void	move_left(t_user *user, bool *flag);
-void	move_right(t_user *user, bool *flag);
+void	move_forward(t_user *user);
+void	move_backward(t_user *user);
+void	move_left(t_user *user);
+void	move_right(t_user *user);
 
 bool	check_collision(t_user *user, double x, double y);
 
 //*************** ROTATIONS **************//
 
-void	rotate_left(t_user *user, bool *flag);
-void	rotate_right(t_user *user, bool *flag);
+void	rotate_left(t_user *user);
+void	rotate_right(t_user *user);
 
 #endif
