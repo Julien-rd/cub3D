@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/27 18:06:26 by jromann          ###   ########.fr       */
+/*   Updated: 2026/02/28 12:48:39 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ static void	intialise_data(t_user *user)
 	user->vars.key_d = false;
 	user->vars.key_arr_l = false;
 	user->vars.key_arr_r = false;
-	user->vars.mouse_pos  = false;
-	user->vars.mouse_pos = false;
+	user->vars.mouse_pos  = SCREEN_WIDTH / 2;
 }
 
 static void	validate_file_extension(char *file_name)
