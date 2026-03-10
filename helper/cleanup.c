@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:14:03 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/02 18:55:32 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/10 11:53:36 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	cleanup(t_user *user, int flag, char *msg)
 		if (msg != NULL && flag == PERROR)
 			perror(msg);
 		if (msg != NULL && flag == ERROR)
-			write(2, msg, ft_strlen(msg));
+			ft_putendl_fd(msg, 2);
 		exit(1);
 	}
 	exit(0);
