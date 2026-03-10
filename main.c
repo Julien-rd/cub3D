@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/02 18:52:10 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/10 11:31:28 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,14 @@
 
 static void	intialise_data(t_user *user)
 {
+	ft_memset(user, 0, sizeof(t_user));
 	user->start_dir = 'D';
-	user->plane_vec.x = 0;
-	user->plane_vec.y = 0;
-	user->player_pos.x = 0;
-	user->player_pos.y = 0;
-	user->dir_vec.x = 0;
-	user->dir_vec.y = 0;
-	user->info = NULL;
-	user->map = NULL;
-	user->we_path = NULL;
-	user->so_path = NULL;
-	user->ea_path = NULL;
-	user->no_path = NULL;
 	user->floor.red = -1;
 	user->floor.blue = -1;
 	user->floor.green = -1;
 	user->ceiling.red = -1;
 	user->ceiling.blue = -1;
 	user->ceiling.green = -1;
-	user->n_tex.img = NULL;
-	user->s_tex.img = NULL;
-	user->w_tex.img = NULL;
-	user->e_tex.img = NULL;
-	user->img = NULL;
-	user->mlx_win = NULL;
-	user->mlx = NULL;
 }
 
 static void	validate_file_extension(char *file_name)
