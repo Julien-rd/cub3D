@@ -6,23 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/10 11:31:28 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:42:54 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
-
-static void	intialise_data(t_user *user)
-{
-	ft_memset(user, 0, sizeof(t_user));
-	user->start_dir = 'D';
-	user->floor.red = -1;
-	user->floor.blue = -1;
-	user->floor.green = -1;
-	user->ceiling.red = -1;
-	user->ceiling.blue = -1;
-	user->ceiling.green = -1;
-}
 
 static void	validate_file_extension(char *file_name)
 {
@@ -134,7 +122,7 @@ int	main(int argc, char **argv)
 	t_user	user;
 
 	if (argc != 2)
-		return (write(2, "Error\nExactly two arguments are required !\n", 43),
+		return (ft_putendl_fd("Error\nInvalid number of arguments!", 2),
 			1);
 	intialise_data(&user);
 	validate_file_extension(argv[1]);
