@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/10 11:42:40 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/10 12:33:04 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 
 // init
 void	intialise_data(t_user *user);
+void	validate_file_extension(char *file_name);
 
 // create_and_validate_map
 void	create_and_validate_map(char *input, t_user *user);

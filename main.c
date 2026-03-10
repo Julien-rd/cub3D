@@ -6,30 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/10 11:52:24 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/10 12:28:45 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
-
-static void	validate_file_extension(char *file_name)
-{
-	size_t	iter;
-
-	iter = 0;
-	while (file_name[iter])
-		iter++;
-	if (iter < 5)
-	{
-		write(2, "Error\nWrong format !\n", 21);
-		exit(1);
-	}
-	if (ft_strncmp(".cub", &file_name[iter - 4], 4) != 0)
-	{
-		write(2, "Error\nWrong format !\n", 21);
-		exit(1);
-	}
-}
 
 static void	open_window(t_user *user)
 {
@@ -122,8 +103,7 @@ int	main(int argc, char **argv)
 	t_user	user;
 
 	if (argc != 2)
-		return (ft_putendl_fd("Error\nInvalid number of arguments!", 2),
-			1);
+		return (ft_putendl_fd("Error\nInvalid number of arguments!", 2), 1);
 	intialise_data(&user);
 	validate_file_extension(argv[1]);
 	parse_input(argv[1], &user);
