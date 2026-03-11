@@ -3,63 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/02 18:52:10 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/10 12:28:45 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
-
-static void	intialise_data(t_user *user)
-{
-	user->start_dir = 'D';
-	user->plane_vec.x = 0;
-	user->plane_vec.y = 0;
-	user->player_pos.x = 0;
-	user->player_pos.y = 0;
-	user->dir_vec.x = 0;
-	user->dir_vec.y = 0;
-	user->info = NULL;
-	user->map = NULL;
-	user->we_path = NULL;
-	user->so_path = NULL;
-	user->ea_path = NULL;
-	user->no_path = NULL;
-	user->floor.red = -1;
-	user->floor.blue = -1;
-	user->floor.green = -1;
-	user->ceiling.red = -1;
-	user->ceiling.blue = -1;
-	user->ceiling.green = -1;
-	user->n_tex.img = NULL;
-	user->s_tex.img = NULL;
-	user->w_tex.img = NULL;
-	user->e_tex.img = NULL;
-	user->img = NULL;
-	user->mlx_win = NULL;
-	user->mlx = NULL;
-}
-
-static void	validate_file_extension(char *file_name)
-{
-	size_t	iter;
-
-	iter = 0;
-	while (file_name[iter])
-		iter++;
-	if (iter < 5)
-	{
-		write(2, "Error\nWrong format !\n", 21);
-		exit(1);
-	}
-	if (ft_strncmp(".cub", &file_name[iter - 4], 4) != 0)
-	{
-		write(2, "Error\nWrong format !\n", 21);
-		exit(1);
-	}
-}
 
 static void	open_window(t_user *user)
 {
@@ -67,7 +18,7 @@ static void	open_window(t_user *user)
 	if(!user->mlx)
 		cleanup(user, ERROR, "Error\nmlx_init failed\n");
 	user->mlx_win = mlx_new_window(user->mlx, SCREEN_WIDTH, SCREEN_HEIGHT,
-			"cub3d");
+			"cub3D");
 	if(!user->mlx_win)
 		cleanup(user, ERROR, "Error\nmlx_new_window failed\n");
 	user->img = mlx_new_image(user->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -152,8 +103,7 @@ int	main(int argc, char **argv)
 	t_user	user;
 
 	if (argc != 2)
-		return (write(2, "Error\nExactly two arguments are required !\n", 43),
-			1);
+		return (ft_putendl_fd("Error\nInvalid number of arguments!", 2), 1);
 	intialise_data(&user);
 	validate_file_extension(argv[1]);
 	parse_input(argv[1], &user);
