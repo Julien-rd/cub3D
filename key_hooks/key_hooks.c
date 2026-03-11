@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 13:54:43 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/02 18:52:22 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/11 12:02:17 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ static int	key_hook(int keycode, t_user *user)
 	bool	moved;
 
 	moved = 0;
-	if (keycode == 65307)
+	if (keycode == KEY_ESC)
 		cleanup(user, SUCCESS, NULL);
-	if (keycode == 119)
+	if (keycode == KEY_W)
 		move_forward(user, &moved);
-	if (keycode == 115)
+	if (keycode == KEY_S)
 		move_backward(user, &moved);
-	if (keycode == 97)
+	if (keycode == KEY_A)
 		move_left(user, &moved);
-	if (keycode == 100)
+	if (keycode == KEY_D)
 		move_right(user, &moved);
-	if (keycode == 65361)
+	if (keycode == KEY_ARR_L)
 		rotate_left(user, &moved);
-	if (keycode == 65363)
+	if (keycode == KEY_ARR_R)
 		rotate_right(user, &moved);
 	if (moved)
 	{

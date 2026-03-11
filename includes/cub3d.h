@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/10 12:33:04 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/11 12:02:10 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@
 
 # define MOVE_S 0.05
 # define ROT_S 0.03
+
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_ARR_R 65363
+# define KEY_ARR_L 65361
 
 //*************** PARSING **************//
 
