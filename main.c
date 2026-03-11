@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/11 13:04:50 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/11 16:29:03 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,26 +98,37 @@ void	fill_spaces_with_walls(t_user *user)
 	}
 }
 
+void	move_player(t_user *user)
+{
+	int	new_x;
+	int	new_y;
+	int	move_x;
+	int	move_y;
+
+	move_x = user->key.w - user->key.s;
+	move_y = user->key.d - user->key.a;
+	new_x = user->player_pos.x *move_x + user->player_pos.y * move_x;
+	new_y = user->player_pos.x *move_y + user->player_pos.y * move_y;
+	if (!check_collision(user, new_x, new_y))
+	{
+		user->player_pos.x = new_x;
+		user->player_pos.y = new_y;
+	}
+	if (user->key.arr_l)
+		rotate_left(user);
+	if (user->key.arr_r)
+		rotate_right(user);
+}
+
 int	game_loop(t_user *user)
 {
 	int mouse_zone;
 	
-	if (user->vars.key_w)
-		move_forward(user);
-	if (user->vars.key_s)
-		move_backward(user);
-	if (user->vars.key_a)
-		move_left(user);
-	if (user->vars.key_d)
-		move_right(user);
-	if (user->vars.key_arr_l)
-		rotate_left(user);
-	if (user->vars.key_arr_r)
-		rotate_right(user);
+	move_player(user);
 	mouse_zone = SCREEN_WIDTH / 4;
-	if (user->vars.mouse_pos > SCREEN_WIDTH / 2 + mouse_zone)
+	if (user->key.mouse_pos > SCREEN_WIDTH / 2 + mouse_zone)
 		rotate_right(user);
-	if (user->vars.mouse_pos < SCREEN_WIDTH / 2 - mouse_zone)
+	if (user->key.mouse_pos < SCREEN_WIDTH / 2 - mouse_zone)
 		rotate_left(user);
 	ft_bzero(user->image.img_data, SCREEN_WIDTH * SCREEN_HEIGHT * 4);
 	draw_ray(user);

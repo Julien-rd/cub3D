@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/27 17:30:12 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/11 16:15:10 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ typedef struct s_rgb
 	int				blue;
 }					t_rgb;
 
-typedef struct s_vars
+typedef struct s_keys
 {
-	bool			key_w;
-	bool			key_s;
-	bool			key_a;
-	bool			key_d;
-	bool			key_arr_l;
-	bool			key_arr_r;
+	bool			w;
+	bool			s;
+	bool			a;
+	bool			d;
+	bool			arr_l;
+	bool			arr_r;
 	int				mouse_pos;
-}					t_vars;
+}					t_keys;
 
 typedef struct s_vector
 {
@@ -110,7 +110,7 @@ typedef struct s_user
 	t_texture		e_tex;
 	void			*img;
 	t_image			image;
-	t_vars			vars;
+	t_keys			key;
 }					t_user;
 
 #endif
