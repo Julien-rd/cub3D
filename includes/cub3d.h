@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/11 15:56:21 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 16:36:07 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	move_forward(t_user *user);
 void	move_backward(t_user *user);
 void	move_left(t_user *user);
 void	move_right(t_user *user);
+void	move_player(t_user *user);
 
 bool	check_collision(t_user *user, double x, double y);
 

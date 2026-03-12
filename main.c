@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:21:15 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/11 16:29:03 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 16:36:17 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,28 +96,6 @@ void	fill_spaces_with_walls(t_user *user)
 		}
 		y++;
 	}
-}
-
-void	move_player(t_user *user)
-{
-	int	new_x;
-	int	new_y;
-	int	move_x;
-	int	move_y;
-
-	move_x = user->key.w - user->key.s;
-	move_y = user->key.d - user->key.a;
-	new_x = user->player_pos.x *move_x + user->player_pos.y * move_x;
-	new_y = user->player_pos.x *move_y + user->player_pos.y * move_y;
-	if (!check_collision(user, new_x, new_y))
-	{
-		user->player_pos.x = new_x;
-		user->player_pos.y = new_y;
-	}
-	if (user->key.arr_l)
-		rotate_left(user);
-	if (user->key.arr_r)
-		rotate_right(user);
 }
 
 int	game_loop(t_user *user)
