@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_info.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
+/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:01:41 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 15:58:17 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 16:43:47 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ static void	convert_colors(t_user *user, char **colors, char flag)
 {
 	if (flag == 'F')
 	{
-		user->floor.red = ft_atoi(colors[0]);
-		user->floor.green = ft_atoi(colors[1]);
-		user->floor.blue = ft_atoi(colors[2]);
+		user->floor.red = s_atoi(colors[0]);
+		user->floor.green = s_atoi(colors[1]);
+		user->floor.blue = s_atoi(colors[2]);
 		if (user->floor.red == -1 || user->floor.blue == -1
 			|| user->floor.green == -1)
 			return (free2d(colors), exit_game(user, ERROR,
@@ -86,9 +86,9 @@ static void	convert_colors(t_user *user, char **colors, char flag)
 	}
 	if (flag == 'C')
 	{
-		user->ceiling.red = ft_atoi(colors[0]);
-		user->ceiling.green = ft_atoi(colors[1]);
-		user->ceiling.blue = ft_atoi(colors[2]);
+		user->ceiling.red = s_atoi(colors[0]);
+		user->ceiling.green = s_atoi(colors[1]);
+		user->ceiling.blue = s_atoi(colors[2]);
 		if (user->ceiling.red == -1 || user->ceiling.blue == -1
 			|| user->ceiling.green == -1)
 			return (free2d(colors), exit_game(user, ERROR,
