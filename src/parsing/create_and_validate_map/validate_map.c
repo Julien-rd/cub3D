@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:41:17 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 15:55:29 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	valid_map(t_user *user)
 	while (user->map[iter])
 	{
 		if (valid_line(user, iter) == 1)
-			exit_game(user, ERROR, "Error\nInvalid input !\n");
+			exit_game(user, ERROR, "Error\nInvalid input!");
 		iter++;
 	}
 }

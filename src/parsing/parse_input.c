@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:11:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 14:45:57 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 15:55:08 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ static void	final_check(t_user *user)
 {
 	if (user->path.we == NULL || user->path.so == NULL || user->path.ea == NULL
 		|| user->path.no == NULL)
-		exit_game(user, ERROR, "Error\nNo path found !\n");
+		exit_game(user, ERROR, "Error\nNo path found!");
 	if (user->start_dir == 'D')
-		exit_game(user, ERROR, "Error\nNo direction found !\n");
+		exit_game(user, ERROR, "Error\nNo direction found!");
 	if (user->floor.red == -1 || user->floor.blue == -1
 		|| user->floor.green == -1)
-		exit_game(user, ERROR, "Error\nNo color found !\n");
+		exit_game(user, ERROR, "Error\nNo color found!");
 	if (user->ceiling.red == -1 || user->ceiling.blue == -1
 		|| user->ceiling.green == -1)
-		exit_game(user, ERROR, "Error\nNo color found !\n");
+		exit_game(user, ERROR, "Error\nNo color found!");
 	if (!user->info || !user->map)
-		exit_game(user, ERROR, "Error\nInvalid input !\n");
+		exit_game(user, ERROR, "Error\nInvalid input!");
 }
 
 static unsigned int	extract_color(t_rgb color)

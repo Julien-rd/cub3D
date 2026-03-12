@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:02:58 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 14:47:58 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 15:57:15 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	check_extensions(t_user *user, char *path)
 
 	len = ft_strlen(path);
 	if (len < 5)
-		exit_game(user, ERROR, "Error\nWrong path extension!\n");
+		exit_game(user, ERROR, "Error\nWrong path extension!");
 	if (ft_strncmp(".xpm", &path[len - 4], 4) != 0)
-		exit_game(user, ERROR, "Error\nWrong path extension!\n");
+		exit_game(user, ERROR, "Error\nWrong path extension!");
 }
 
 void	extract_line(t_user *user, size_t pos)

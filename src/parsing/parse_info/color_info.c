@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:01:41 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 15:14:24 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 15:58:17 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	check_2dlen(t_user *user, char **colors)
 		iter++;
 	if (iter != 3)
 		return (free2d(colors), exit_game(user, ERROR,
-				"Error\nInvalid input !\n"));
+				"Error\nInvalid input!"));
 }
 
 static char	**prepare_color_info(t_user *user, size_t pos)
@@ -65,7 +65,7 @@ static void	validate_colors(t_user *user, char **colors)
 		{
 			if (!ft_isdigit(colors[row][col]))
 				return (free2d(colors), exit_game(user, ERROR,
-						"Error\nInvalid input !\n"));
+						"Error\nInvalid input!"));
 			col++;
 		}
 		row++;
@@ -82,7 +82,7 @@ static void	convert_colors(t_user *user, char **colors, char flag)
 		if (user->floor.red == -1 || user->floor.blue == -1
 			|| user->floor.green == -1)
 			return (free2d(colors), exit_game(user, ERROR,
-					"Error\nInvalid input !\n"));
+					"Error\nInvalid input!"));
 	}
 	if (flag == 'C')
 	{
@@ -92,7 +92,7 @@ static void	convert_colors(t_user *user, char **colors, char flag)
 		if (user->ceiling.red == -1 || user->ceiling.blue == -1
 			|| user->ceiling.green == -1)
 			return (free2d(colors), exit_game(user, ERROR,
-					"Error\nInvalid input !\n"));
+					"Error\nInvalid input!"));
 	}
 }
 
