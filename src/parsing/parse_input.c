@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:11:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 10:11:21 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 14:45:57 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	final_check(t_user *user)
 {
-	if (user->we_path == NULL || user->so_path == NULL || user->ea_path == NULL
-		|| user->no_path == NULL)
+	if (user->path.we == NULL || user->path.so == NULL || user->path.ea == NULL
+		|| user->path.no == NULL)
 		exit_game(user, ERROR, "Error\nNo path found !\n");
 	if (user->start_dir == 'D')
 		exit_game(user, ERROR, "Error\nNo direction found !\n");
@@ -36,8 +36,8 @@ static unsigned int	extract_color(t_rgb color)
 
 static void	convert_color(t_user *user)
 {
-	user->ceiling_c = extract_color(user->ceiling);
-	user->floor_c = extract_color(user->floor);
+	user->ceiling.colour = extract_color(user->ceiling);
+	user->floor.colour = extract_color(user->floor);
 }
 
 static void	fill_spaces_with_walls(t_user *user)

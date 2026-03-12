@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_info.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:30:19 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:41:47 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 14:47:10 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	parse_info(t_user *user)
 	iter = 0;
 	while (user->info[iter])
 	{
-		if (((ft_strncmp("NO ", user->info[iter], 3) == 0) && (!user->no_path))
+		if (((ft_strncmp("NO ", user->info[iter], 3) == 0) && (!user->path.no))
 			|| ((ft_strncmp("SO ", user->info[iter], 3) == 0)
-				&& (!user->so_path)) || ((ft_strncmp("WE ", user->info[iter],
-						3) == 0) && (!user->we_path)) || ((ft_strncmp("EA ",
-						user->info[iter], 3) == 0) && (!user->ea_path)))
+				&& (!user->path.so)) || ((ft_strncmp("WE ", user->info[iter],
+						3) == 0) && (!user->path.we)) || ((ft_strncmp("EA ",
+						user->info[iter], 3) == 0) && (!user->path.ea)))
 			extract_line(user, iter);
 		else if ((ft_strncmp("F", user->info[iter], 1) == 0
 				&& user->floor.blue == -1) || (ft_strncmp("C", user->info[iter],

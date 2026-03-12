@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/27 17:30:12 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 15:31:59 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct s_rgb
 	int				red;
 	int				green;
 	int				blue;
-}					t_rgb;
+	unsigned int	colour;
+}	t_rgb;
 
 typedef struct s_vars
 {
@@ -31,41 +32,43 @@ typedef struct s_vars
 	bool			key_arr_l;
 	bool			key_arr_r;
 	int				mouse_pos;
-}					t_vars;
+}	t_vars;
 
 typedef struct s_vector
 {
 	double			x;
 	double			y;
-}					t_vector;
+}	t_vector;
 
 typedef struct s_image
-{
-	char			*img_data;
-	int				bpp;
-	int				size_line;
-	int				endian;
-}					t_image;
-
-typedef struct s_texture
 {
 	void			*img;
 	char			*data;
 	int				width;
 	int				height;
 	int				bpp;
-	int				line_len;
+	int				line;
 	int				endian;
-}					t_texture;
+}	t_image;
+
+typedef struct s_texture
+{
+	t_image			n;
+	t_image			s;
+	t_image			w;
+	t_image			e;
+	t_image			img;
+}	t_texture;
+
 
 typedef struct s_draw_utils
 {
 	int				start;
 	int				end;
-	t_texture		*texture;
+	t_image		*texture;
 	double			wall_x;
 	int				tex_x;
-}					t_draw_utils;
+}	t_draw_utils;
 
 typedef struct s_dda
 {
@@ -84,7 +87,15 @@ typedef struct s_dda
 	int				step_y;
 	int				side;
 	double			perp_wall_dist;
-}					t_dda;
+}	t_dda;
+
+typedef struct s_path
+{
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+}	t_path;
 
 typedef struct s_user
 {
@@ -94,23 +105,13 @@ typedef struct s_user
 	t_vector		plane_vec;
 	char			**map;
 	char			**info;
-	char			*no_path;
-	char			*so_path;
-	char			*we_path;
-	char			*ea_path;
+	t_path			path;
 	t_rgb			floor;
 	t_rgb			ceiling;
-	unsigned int	ceiling_c;
-	unsigned int	floor_c;
 	void			*mlx;
 	void			*mlx_win;
-	t_texture		n_tex;
-	t_texture		s_tex;
-	t_texture		w_tex;
-	t_texture		e_tex;
-	void			*img;
-	t_image			image;
 	t_vars			vars;
-}					t_user;
+	t_texture		tex;
+}	t_user;
 
 #endif

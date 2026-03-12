@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_info.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:02:58 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:41:51 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 14:47:58 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	extract_line(t_user *user, size_t pos)
 	user->info[pos][end + 1] = '\0';
 	check_extensions(user, &user->info[pos][start]);
 	if (user->info[pos][0] == 'N')
-		user->no_path = &user->info[pos][start];
+		user->path.no = &user->info[pos][start];
 	if (user->info[pos][0] == 'S')
-		user->so_path = &user->info[pos][start];
+		user->path.so = &user->info[pos][start];
 	if (user->info[pos][0] == 'W')
-		user->we_path = &user->info[pos][start];
+		user->path.we = &user->info[pos][start];
 	if (user->info[pos][0] == 'E')
-		user->ea_path = &user->info[pos][start];
+		user->path.ea = &user->info[pos][start];
 }

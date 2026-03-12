@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:47:08 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 10:08:21 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 15:30:42 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,19 +127,19 @@ static void	get_wall(t_dda *ray, t_user *user)
 	}
 }
 
-static t_texture	*get_texture(t_dda *ray, t_user *user)
+static t_image	*get_texture(t_dda *ray, t_user *user)
 {
 	if (ray->side == 0)
 	{
 		if (ray->ray_dir_x >= 0)
-			return (&user->e_tex);
-		return (&user->w_tex);
+			return (&user->tex.e);
+		return (&user->tex.w);
 	}
 	else
 	{
 		if (ray->ray_dir_y >= 0)
-			return (&user->s_tex);
-		return (&user->n_tex);
+			return (&user->tex.s);
+		return (&user->tex.n);
 	}
 }
 
@@ -167,12 +167,12 @@ static void	init_draw_data(t_draw_utils *draw_data, t_dda *ray, t_user *user)
 		draw_data->tex_x = draw_data->texture->width - draw_data->tex_x - 1;
 }
 
-void	ft_put_pixel(t_image image, int x, int y, int color)
+void	ft_put_pixel(t_image img, int x, int y, int color)
 {
 	int	offset;
 
-	offset = (y * image.size_line) + (x * (image.bpp / 8));
-	*(int *)(image.img_data + offset) = color;
+	offset = (y * img.line) + (x * (img.bpp / 8));
+	*(int *)(img.data + offset) = color;
 }
 
 static void	draw_line(t_dda *ray, t_user *user, int screen_x)
@@ -188,7 +188,7 @@ static void	draw_line(t_dda *ray, t_user *user, int screen_x)
 	y = 0;
 	while (y < draw_data.start)
 	{
-		ft_put_pixel(user->image, screen_x, y, user->ceiling_c);
+		ft_put_pixel(user->tex.img, screen_x, y, user->ceiling.colour);
 		y++;
 	}
 	if (ray->side == 0)
@@ -198,19 +198,19 @@ static void	draw_line(t_dda *ray, t_user *user, int screen_x)
 	y = draw_data.start;
 	while (y <= draw_data.end)
 	{
-		ft_put_pixel(user->image, screen_x, y, color);
+		ft_put_pixel(user->tex.img, screen_x, y, color);
 		y++;
 	}
 	y = draw_data.end + 1;
 	while (y < SCREEN_HEIGHT)
 	{
-		ft_put_pixel(user->image, screen_x, y, user->floor_c);
+		ft_put_pixel(user->tex.img, screen_x, y, user->floor.colour);
 		y++;
 	}
 	y = 0;
 	while (y < draw_data.start && screen_x >= SCREEN_WIDTH)
 	{
-		ft_put_pixel(user->image, screen_x, y, user->ceiling_c);
+		ft_put_pixel(user->tex.img, screen_x, y, user->ceiling.colour);
 		y++;
 	}
 	step = (double)draw_data.texture->height / (draw_data.end
@@ -224,15 +224,15 @@ static void	draw_line(t_dda *ray, t_user *user, int screen_x)
 			tex_y = draw_data.texture->height - 1;
 		tex_pos += step;
 		color = *(int *)(draw_data.texture->data + (tex_y
-					* draw_data.texture->line_len + draw_data.tex_x
+					* draw_data.texture->line + draw_data.tex_x
 					* (draw_data.texture->bpp / 8)));
-		ft_put_pixel(user->image, screen_x, y, color);
+		ft_put_pixel(user->tex.img, screen_x, y, color);
 		y++;
 	}
 	y = draw_data.end + 1;
 	while (y < SCREEN_HEIGHT)
 	{
-		ft_put_pixel(user->image, screen_x, y, user->floor_c);
+		ft_put_pixel(user->tex.img, screen_x, y, user->floor.colour);
 		y++;
 	}
 }
@@ -251,7 +251,7 @@ void	draw_ray(t_user *user)
 {
 	int row;
 
-	ft_memset(user->image.img_data, 0, SCREEN_HEIGHT * user->image.size_line);
+	ft_memset(user->tex.img.data, 0, SCREEN_HEIGHT * user->tex.img.line);
 	row = 0;
 	while (row < SCREEN_WIDTH)
 	{
