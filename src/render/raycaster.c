@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:47:08 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:41:57 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 10:08:21 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,27 @@ void	calculate_plane_vector(t_vector *dir, t_vector *plane, int flag)
 	}
 }
 
-
 static void	init_dda(t_dda *ray, t_user *user, int screen_x)
 {
 	ray->camera_x = 2 * screen_x / (double)SCREEN_WIDTH - 1;
 	ray->ray_dir_x = user->dir_vec.x + user->plane_vec.x * ray->camera_x;
 	ray->ray_dir_y = user->dir_vec.y + user->plane_vec.y * ray->camera_x;
-	
 	if (fabs(ray->ray_dir_x) < 1e-6)
 		ray->ray_dir_x = (ray->ray_dir_x < 0) ? -1e-6 : 1e-6;
 	if (fabs(ray->ray_dir_y) < 1e-6)
 		ray->ray_dir_y = (ray->ray_dir_y < 0) ? -1e-6 : 1e-6;
-
 	ray->pos_x = user->player_pos.x;
 	ray->pos_y = user->player_pos.y;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-
 	if (ray->ray_dir_x == 0)
 		ray->delta_dist_x = 1e30;
 	else
 		ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
-
 	if (ray->ray_dir_y == 0)
 		ray->delta_dist_y = 1e30;
 	else
 		ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
-
 	ray->side = 0;
 	if (ray->ray_dir_x < 0)
 	{
@@ -64,7 +58,6 @@ static void	init_dda(t_dda *ray, t_user *user, int screen_x)
 		ray->step_x = 1;
 		ray->side_dist_x = (ray->map_x + 1.0 - ray->pos_x) * ray->delta_dist_x;
 	}
-
 	if (ray->ray_dir_y < 0)
 	{
 		ray->step_y = -1;

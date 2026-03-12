@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:41:27 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 10:07:13 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,84 +55,84 @@
 
 //*************** CORE **************//
 
-//exit_game
+// exit_game
 void	exit_game(t_user *user, int flag, char *msg);
 void	cleanup_mlx(t_user *user);
 void	free2d(char **str);
 
-//start_game
-void start_game(t_user *user);
-int	game_loop(t_user *user);
+// start_game
+void	start_game(t_user *user);
+int		game_loop(t_user *user);
 
 //*************** INIT **************//
 
-//init_data
+// init_data
 void	init_data(t_user *user);
 
-//init_mlx
-void init_graphics(t_user *user);
+// init_mlx
+void	init_graphics(t_user *user);
 
-//key_hooks
-int	close_hook(t_user *user);
-int mouse_hook(int x, int y, t_user *user);
-int mouse_left_win_hook(t_user *user);
-int	key_release_hook(int keycode, t_user *user);
-int	key_press_hook(int keycode, t_user *user);
+// key_hooks
+int		close_hook(t_user *user);
+int		mouse_hook(int x, int y, t_user *user);
+int		mouse_left_win_hook(t_user *user);
+int		key_release_hook(int keycode, t_user *user);
+int		key_press_hook(int keycode, t_user *user);
 
-//set_up_hooks
+// set_up_hooks
 void	set_up_hooks(t_user *user);
 
-//valid_file
+// valid_file
 void	error_exit(char *mes);
 void	validate_file_extension(char *file_name);
 
 //*************** INPUT **************//
 
-//collision
+// collision
 bool	check_collision(t_user *user, double x, double y);
 
-//movement
+// movement
 void	move_right(t_user *user);
 void	move_left(t_user *user);
 void	move_backward(t_user *user);
 void	move_forward(t_user *user);
 
-//rotation
+// rotation
 void	rotate_left(t_user *user);
 void	rotate_right(t_user *user);
 
 //*************** PARSING **************//
 
-//create_and_validate_map/create_and_validate_map
+// create_and_validate_map/create_and_validate_map
 void	create_and_validate_map(char *input, t_user *user);
 
-//create_and_validate_map/create_map
+// create_and_validate_map/create_map
 size_t	map_exists(char *input, t_user *user);
 void	check_empty_lines(char *map, char *input, t_user *user);
 
-//create_and_validate_map/validate_map
+// create_and_validate_map/validate_map
 void	valid_map(t_user *user);
 
-//parse_info/color_info
+// parse_info/color_info
 void	color_info(t_user *user, char flag, size_t pos);
 
-//parse_info/parse_info
+// parse_info/parse_info
 void	parse_info(t_user *user);
 size_t	skip_spaces(char *str);
 
-//parse_info/wall_info
+// parse_info/wall_info
 void	extract_line(t_user *user, size_t pos);
 void	check_extensions(t_user *user, char *path);
 
-//parse_input
-int	parse_input(char *file_name, t_user *user);
+// parse_input
+int		parse_input(char *file_name, t_user *user);
 
-//read_file_to_string
+// read_file_to_string
 char	*read_file_to_string(char *file_name);
 
 //*************** RENDER **************//
 
-//raycaster
+// raycaster
 void	draw_ray(t_user *user);
 void	calculate_plane_vector(t_vector *dir, t_vector *plane, int flag);
 

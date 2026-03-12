@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 08:26:56 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:43:38 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 10:08:32 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	game_loop(t_user *user)
 {
-	int mouse_zone;
-	
+	int	mouse_zone;
+
 	if (user->vars.key_w)
 		move_forward(user);
 	if (user->vars.key_s)
@@ -33,16 +33,14 @@ int	game_loop(t_user *user)
 		rotate_right(user);
 	if (user->vars.mouse_pos < SCREEN_WIDTH / 2 - mouse_zone)
 		rotate_left(user);
-	ft_bzero(user->image.img_data, SCREEN_WIDTH * SCREEN_HEIGHT * 4);
 	draw_ray(user);
 	mlx_put_image_to_window(user->mlx, user->mlx_win, user->img, 0, 0);
 	return (0);
 }
 
-void start_game(t_user *user){
-	draw_ray(user);
-	mlx_put_image_to_window(user->mlx, user->mlx_win, user->img, 0, 0);
-    set_up_hooks(user);
-	mlx_loop_hook(user->mlx, game_loop, &user);
+void	start_game(t_user *user)
+{
+	set_up_hooks(user);
+	mlx_loop_hook(user->mlx, game_loop, user);
 	mlx_loop(user->mlx);
 }

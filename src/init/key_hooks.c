@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:21:37 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:38:43 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 10:09:57 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	close_hook(t_user *user)
 	return (0);
 }
 
-int mouse_hook(int x, int y, t_user *user)
+int	mouse_hook(int x, int y, t_user *user)
 {
 	(void)y;
 	user->vars.mouse_pos = x;
-    return (0);
+	return (0);
 }
 
-int mouse_left_win_hook(t_user *user)
+int	mouse_left_win_hook(t_user *user)
 {
 	user->vars.mouse_pos = SCREEN_WIDTH / 2;
 	return (0);
