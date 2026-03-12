@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 10:07:13 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/12 13:43:31 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int		key_press_hook(int keycode, t_user *user);
 void	set_up_hooks(t_user *user);
 
 // valid_file
-void	error_exit(char *mes);
 void	validate_file_extension(char *file_name);
 
 //*************** INPUT **************//
