@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 16:39:12 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 16:50:07 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int	valid_line(t_user *user, size_t pos)
 			if ((user->map[pos][i] == 'N' || user->map[pos][i] == 'S'
 					|| user->map[pos][i] == 'E'
 					|| user->map[pos][i] == 'W') && user->start_dir == 'D')
-				t_pos(user, pos, i);
+				player_start_pos(user, pos, i);
 			else
 				return (1);
 		}

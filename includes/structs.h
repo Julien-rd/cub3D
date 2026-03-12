@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 16:41:54 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 16:47:39 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,12 +110,7 @@ typedef struct s_user
 	t_rgb			ceiling;
 	void			*mlx;
 	void			*mlx_win;
-	t_texture		n_tex;
-	t_texture		s_tex;
-	t_texture		w_tex;
-	t_texture		e_tex;
-	void			*img;
-	t_image			image;
+	t_texture		tex;
 	t_keys			key;
 }					t_user;
 

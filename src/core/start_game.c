@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 08:26:56 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 15:26:25 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/12 16:46:47 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ int	game_loop(t_user *user)
 {
 	int	mouse_zone;
 
-	if (user->vars.key_w)
+	if (user->key.w)
 		move_forward(user);
-	if (user->vars.key_s)
+	if (user->key.s)
 		move_backward(user);
-	if (user->vars.key_a)
+	if (user->key.a)
 		move_left(user);
-	if (user->vars.key_d)
+	if (user->key.d)
 		move_right(user);
-	if (user->vars.key_arr_l)
+	if (user->key.arr_l)
 		rotate_left(user);
-	if (user->vars.key_arr_r)
+	if (user->key.arr_r)
 		rotate_right(user);
 	mouse_zone = SCREEN_WIDTH / 4;
-	if (user->vars.mouse_pos > SCREEN_WIDTH / 2 + mouse_zone)
+	if (user->key.mouse_pos > SCREEN_WIDTH / 2 + mouse_zone)
 		rotate_right(user);
-	if (user->vars.mouse_pos < SCREEN_WIDTH / 2 - mouse_zone)
+	if (user->key.mouse_pos < SCREEN_WIDTH / 2 - mouse_zone)
 		rotate_left(user);
 	draw_ray(user);
 	mlx_put_image_to_window(user->mlx, user->mlx_win, user->tex.img.img, 0, 0);
