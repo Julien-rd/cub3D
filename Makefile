@@ -3,8 +3,9 @@ INC_DIR = includes
 CFLAGS = -Wall -Wextra -Werror -Ilibft -MMD -g -I$(INC_DIR)
 OBJ_DIR = obj
 LDFLAGS = -L/usr/lib -lmlx -lXext -lX11 -lm -lz
-VPATH = parsing parsing/create_and_validate_map \
-parsing/parse_info helper key_hooks init
+VPATH = src/parsing src/parsing/create_and_validate_map \
+parsing/parse_info helper key_hooks src/init src
+
 SRC = main.c parse_input.c read_file_to_string.c color_info.c parse_info.c \
 wall_info.c create_and_validate_map.c validate_map.c create_map.c cleanup.c \
 calculations.c key_hooks.c movement.c movement_helpers.c rotations.c \
