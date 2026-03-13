@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_info.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:01:41 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 16:43:47 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/13 11:38:56 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	validate_colors(t_user *user, char **colors)
 	{
 		if (ft_strlen(colors[row]) > 3)
 			return (free2d(colors), exit_game(user, ERROR,
-					"Error\nInvalid input !\n"));
+					"Error\nInvalid input!"));
 		col = 0;
 		while (colors[row][col])
 		{
