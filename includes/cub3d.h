@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 17:21:02 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/13 12:38:17 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void	color_info(t_user *user, char flag, size_t pos);
 // parse_info/parse_info
 void	parse_info(t_user *user);
 size_t	skip_spaces(char *str);
+int     s_atoi(const char *str);
 
 // parse_info/wall_info
 void	extract_line(t_user *user, size_t pos);
