@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/16 16:37:33 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/16 16:38:26 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <unistd.h>
 
 # define FOV_LEN 0.66
-# define WALL 49
 # define SCREEN_WIDTH 800
 # define SCREEN_HEIGHT 600
 
