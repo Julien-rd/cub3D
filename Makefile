@@ -1,10 +1,15 @@
 NAME = cub3D
 NAME_BONUS = cub3D_bonus
 
+NAME_BONUS = cub3D_bonus
+
 INC_DIR = includes
-CFLAGS = -Wall -Wextra -Werror -Ilibft -MMD -g -O3 -I$(INC_DIR)
+CFLAGS = -Wall -Wextra -Werror -Ilibft -MMD -g -O3 -O3 -I$(INC_DIR)
 OBJ_DIR = obj
 LDFLAGS = -L/usr/lib -lmlx -lXext -lX11 -lm -lz
+
+VPATH = src src/core src/init src/input src/parsing src/parsing/create_and_validate_map src/parsing/parse_info src/render \
+        src_bonus src_bonus/core src_bonus/init src_bonus/input src_bonus/parsing src_bonus/parsing/create_and_validate_map src_bonus/parsing/parse_info src_bonus/render
 
 VPATH = src src/core src/init src/input src/parsing src/parsing/create_and_validate_map src/parsing/parse_info src/render \
         src_bonus src_bonus/core src_bonus/init src_bonus/input src_bonus/parsing src_bonus/parsing/create_and_validate_map src_bonus/parsing/parse_info src_bonus/render
@@ -18,11 +23,8 @@ SRC_BONUS = main_bonus.c cleanup_bonus.c start_game_bonus.c init_data_bonus.c in
             parse_input_bonus.c read_file_to_string_bonus.c create_and_validate_map_bonus.c \
             create_map_bonus.c validate_map_bonus.c color_info_bonus.c parse_info_bonus.c wall_info_bonus.c raycaster_bonus.c
 
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
-OBJ_BONUS = $(SRC_BONUS:%.c=$(OBJ_DIR)/%.o)
-
-DEP = $(OBJ:.o=.d) $(OBJ_BONUS:.o=.d)
-
+OBJ = $(SRC:%.c=obj/%.o)
+DEP = $(SRC:%.c=obj/%.d)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
