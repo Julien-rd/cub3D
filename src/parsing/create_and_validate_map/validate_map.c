@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
+/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 15:55:29 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/16 15:18:06 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,12 @@ static int	valid_line(t_user *user, size_t pos)
 					|| user->map[pos][iter] == 'W') && user->start_dir == 'D')
 				player_start_pos(user, pos, iter);
 			else
-				return (1);
+				return (exit_game(user, ERROR, "Error\nInvalid char in map!"),
+					1);
 		}
 		if (should_be_a_wall(user, iter, pos) == 1)
-			return (1);
+			return (exit_game(user, ERROR,
+					"Error\nMap is not surrounded by walls!"), 1);
 		iter++;
 	}
 	return (0);

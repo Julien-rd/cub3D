@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_and_validate_map.c                          :+:      :+:    :+:   */
+/*   create_and_validate_map_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:56:37 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:39:56 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/16 15:22:32 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../../../includes/cub3d_bonus.h"
 
 void	create_and_validate_map(char *input, t_user *user)
 {

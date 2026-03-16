@@ -6,7 +6,7 @@
 /*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:49:34 by jromann           #+#    #+#             */
-/*   Updated: 2026/02/02 18:52:56 by jromann          ###   ########.fr       */
+/*   Updated: 2026/03/16 15:07:12 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char	*read_file_to_string(char *file_name)
 		ft_strcpy(&input[input_len], buffer);
 		input_len = ft_strlen(input);
 	}
-	close(fd);
+	if (close(fd) == -1)
+		return (perror("close"), exit(1), NULL);
 	return (input);
 }

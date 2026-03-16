@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_info.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
+/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:30:19 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 15:57:08 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/16 15:13:27 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	parse_info(t_user *user)
 		else if (user->info[iter][skip_spaces(user->info[iter])] == '1')
 			return ;
 		else
-			exit_game(user, ERROR, "Error\nInvalid input!");
+			exit_game(user, ERROR, "Error\nInvalid identifier!");
 		iter++;
 	}
 }
