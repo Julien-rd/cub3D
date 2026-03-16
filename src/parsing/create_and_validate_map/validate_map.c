@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 16:50:07 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/16 13:26:50 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ static void	player_start_pos(t_user *user, size_t pos, size_t i)
 	}
 	user->player_pos.x = (double)i + 0.5;
 	user->player_pos.y = (double)pos + 0.5;
-	calculate_plane_vector(&user->dir_vec, &user->plane_vec, RIGHT);
+	user->plane_vec.x = -(FOV_LEN * user->dir_vec.y);
+	user->plane_vec.y = FOV_LEN * user->dir_vec.x;
 }
 
 static int	valid_line(t_user *user, size_t pos)

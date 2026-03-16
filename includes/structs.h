@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 16:47:39 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/16 13:32:17 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,11 @@ typedef struct s_texture
 	t_image			img;
 }	t_texture;
 
-
 typedef struct s_draw_utils
 {
 	int				start;
 	int				end;
-	t_image		*texture;
+	t_image			*texture;
 	double			wall_x;
 	int				tex_x;
 }	t_draw_utils;
