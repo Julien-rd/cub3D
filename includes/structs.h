@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/16 13:32:17 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:08:54 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,17 @@ typedef struct s_path
 	char			*ea;
 }	t_path;
 
+typedef struct s_player
+{
+	t_coord			pos;
+	t_coord			dir;
+}	t_player;
+
 typedef struct s_user
 {
 	char			start_dir;
-	t_coord			player_pos;
-	t_coord			dir_vec;
-	t_coord			plane_vec;
+	t_player		player;
+	t_coord			plane;
 	char			**map;
 	char			**info;
 	t_path			path;
@@ -111,6 +116,6 @@ typedef struct s_user
 	void			*mlx_win;
 	t_texture		tex;
 	t_keys			key;
-}					t_user;
+}	t_user;
 
 #endif
