@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/19 19:20:25 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:01:45 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,18 @@
 # define FOV_LEN 0.66
 # define SCREEN_WIDTH 800
 # define SCREEN_HEIGHT 600
+# define MOVE_S 0.05
+# define ROT_S 0.02
 
 # define SUCCESS 0
 # define ERROR 1
 # define PERROR 2
 
-# define MOVE_S 0.05
-# define ROT_S 0.02
+# define RED 0xff0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+
+# define MINI_TILE 4
 
 //*************** CORE **************//
 
@@ -112,6 +117,6 @@ char	*read_file_to_string(char *file_name);
 
 // raycaster
 void	draw_image(t_user *user);
-void	ft_put_pixel(int x, int y, t_user *user, unsigned int colour);
+void	draw_minimap(t_user *user);
 
 #endif
