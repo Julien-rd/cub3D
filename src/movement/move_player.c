@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 16:35:18 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/19 20:21:59 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:46:38 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	move_player(t_user *user)
 	double	move_forward;
 	double	move_right;
 
+	user->player.old_pos.x = user->player.pos.x;
+	user->player.old_pos.y = user->player.pos.y;
 	move_forward = user->key.w - user->key.s;
 	move_right = user->key.d - user->key.a;
 	new_x = user->player.pos.x + (move_forward * user->player.dir.x * MOVE_S);
@@ -29,7 +31,6 @@ void	move_player(t_user *user)
 		user->player.pos.x = new_x;
 	if (!check_collision(user, user->player.pos.x, new_y))
 		user->player.pos.y = new_y;
-	user->map[(int)user->player.pos.y][(int)user->player.pos.x] = 'P';
 	if (user->key.arr_l)
 		rotate_left(user);
 	if (user->key.arr_r)

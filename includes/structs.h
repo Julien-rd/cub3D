@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/19 17:52:58 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:45:56 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,41 +43,42 @@ typedef struct s_image
 
 typedef struct s_texture
 {
-	t_image			n;
-	t_image			s;
-	t_image			w;
-	t_image			e;
-	t_image			img;
+	t_image	n;
+	t_image	s;
+	t_image	w;
+	t_image	e;
+	t_image	img;
 }	t_texture;
 
 typedef struct s_path
 {
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
 }	t_path;
 
 typedef struct s_player
 {
-	t_vector			pos;
-	t_vector			dir;
+	t_vector	pos;
+	t_vector	old_pos;
+	t_vector	dir;
 }	t_player;
 
 typedef struct s_user
 {
-	char			start_dir;
-	t_player		player;
-	t_vector		plane;
-	char			**map;
-	char			**info;
-	t_path			path;
-	t_rgb			floor;
-	t_rgb			ceiling;
-	void			*mlx;
-	void			*mlx_win;
-	t_texture		tex;
-	t_keys			key;
+	char		start_dir;
+	t_player	player;
+	t_vector	plane;
+	char		**map;
+	char		**info;
+	t_path		path;
+	t_rgb		floor;
+	t_rgb		ceiling;
+	void		*mlx;
+	void		*mlx_win;
+	t_texture	tex;
+	t_keys		key;
 }	t_user;
 
 #endif

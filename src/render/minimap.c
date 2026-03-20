@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:17:32 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/19 20:24:17 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:47:32 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ void	draw_minimap(t_user *user)
 		{
 			if (user->map[y][x] == '1')
 				draw_square(user, x, y, GREEN);
-			if (user->map[y][x] == 'P')
+			if ((int)user->player.pos.x == x && (int)user->player.pos.y == y)
+			{
+				draw_square(user, (int)user->player.old_pos.x, (int)user->player.old_pos.y, BLACK);
 				draw_square(user, x, y, RED);
+			}
 			x++;
 		}
 		y++;
