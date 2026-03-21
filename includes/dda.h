@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:20:01 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 11:20:43 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/21 11:50:50 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define BLACK 0x000000
+# define WHITE 0xFFFFFF
+# define GREY 0x555555
 
 typedef struct s_coord
 {
@@ -42,5 +44,6 @@ typedef struct s_dda
 }	t_dda;
 
 void	init_ray(t_user *user, t_dda *ray, int x);
+void	init_camera(t_camera *cam, t_user *user);
 
 #endif

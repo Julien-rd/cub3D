@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera.h                                           :+:      :+:    :+:   */
+/*   init_camera.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 13:15:40 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 12:05:54 by vmanuyko         ###   ########.fr       */
+/*   Created: 2026/03/21 11:50:22 by vmanuyko          #+#    #+#             */
+/*   Updated: 2026/03/21 11:50:40 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAMERA_H
-# define CAMERA_H
+#include "../includes/dda.h"
 
-# include "dda.h"
-
-# define VIEW_LENGTH 10
-
-typedef struct	s_camera
+void	init_camera(t_camera *cam, t_user *user)
 {
-	t_vector	min;
-	t_vector	max;
-}	t_camera;
-
-#endif
+	cam->min.x = user->player.pos.x - VIEW_LENGTH;
+	cam->max.x = user->player.pos.x + VIEW_LENGTH;
+	cam->min.y = user->player.pos.y - VIEW_LENGTH;
+	cam->max.y = user->player.pos.y + VIEW_LENGTH;
+}

@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:17:32 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 11:19:19 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/21 11:59:43 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,18 @@ static void	draw_player(t_user *user, t_camera *cam, unsigned int colour)
 	}
 }
 
-static void	init_camera(t_camera *cam, t_user *user)
+static char	get_tile(int x, int y, char **map)
 {
-	cam->min.x = user->player.pos.x - VIEW_LENGTH;
-	cam->max.x = user->player.pos.x + VIEW_LENGTH;
-	cam->min.y = user->player.pos.y - VIEW_LENGTH;
-	cam->max.y = user->player.pos.y + VIEW_LENGTH;
-	cam->min.x = fmax(0, cam->min.x);
-	cam->min.y = fmax(0, cam->min.y);
-	cam->max.x = fmin(MINI_SIZE - 1, cam->max.x);
-	cam->max.y = fmin(MINI_SIZE - 1, cam->max.y);
+	int	map_height;
+
+	map_height = 0;
+	while (map[map_height])
+		map_height++;
+	if (y < 0 || y >= map_height)
+		return (' ');
+	if (x < 0 || x >= (int)ft_strlen(map[y]))
+		return (' ');
+	return (map[y][x]);
 }
 
 void	draw_minimap(t_user *user)
@@ -81,8 +83,8 @@ void	draw_minimap(t_user *user)
 	int			x;
 	int			y;
 	t_camera	cam;
+	char		tile;
 
-	ft_bzero(user->tex.img.data, SCREEN_HEIGHT * user->tex.img.line);
 	init_camera(&cam, user);
 	y = (int)cam.min.y;
 	while (y < (int)cam.max.y)
@@ -90,8 +92,13 @@ void	draw_minimap(t_user *user)
 		x = (int)cam.min.x;
 		while (x < (int)cam.max.x)
 		{
-			if (user->map[y][x] == '1')
-				draw_square(user, x - cam.min.x, y - cam.min.y, GREEN);
+			tile = get_tile(x, y, user->map);
+			if (tile == '1')
+				draw_square(user, x - (int)cam.min.x, y - (int)cam.min.y, BLUE);
+			if (tile == '0' || tile == user->start_dir)
+				draw_square(user, x - (int)cam.min.x, y - (int)cam.min.y, WHITE);
+			if (tile == ' ')
+				draw_square(user, x - (int)cam.min.x, y - (int)cam.min.y, GREY);
 			x++;
 		}
 		y++;
