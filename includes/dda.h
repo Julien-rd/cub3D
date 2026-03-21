@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:20:01 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 16:45:38 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/21 17:23:42 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_dda
 	t_coord			step;
 }	t_dda;
 
-typedef struct	s_camera
+typedef struct s_camera
 {
 	t_vector	min;
 	t_vector	max;

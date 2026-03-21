@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:17:32 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 16:17:35 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/21 17:17:08 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void	draw_square(t_user *user, int x, int y, unsigned int colour)
 	start_x = MINI_OFFSET + x * MINI_TILE;
 	start_y = MINI_OFFSET + y * MINI_TILE;
 	draw_y = 0;
-	if (start_x < 0 || start_y < 0 || start_x > MINI_SIZE || start_y > MINI_SIZE)
+	if (start_x < 0 || start_y < 0
+		|| start_x > MINI_SIZE || start_y > MINI_SIZE)
 		return ;
 	while (draw_y < MINI_TILE)
 	{
@@ -96,9 +97,9 @@ void	draw_minimap(t_user *user)
 		{
 			tile = get_tile(x, y, user->map);
 			if (tile == '1' || tile == ' ')
-				draw_square(user, x - (int)cam.min.x, y - (int)cam.min.y, BLUE);
+				draw_square(user, x -(int)cam.min.x, y -(int)cam.min.y, BLUE);
 			if (tile == '0' || tile == user->start_dir)
-				draw_square(user, x - (int)cam.min.x, y - (int)cam.min.y, WHITE);
+				draw_square(user, x -(int)cam.min.x, y -(int)cam.min.y, WHITE);
 			x++;
 		}
 		y++;
