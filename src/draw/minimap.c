@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:17:32 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 13:55:12 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/21 16:17:35 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	draw_square(t_user *user, int x, int y, unsigned int colour)
 	start_x = MINI_OFFSET + x * MINI_TILE;
 	start_y = MINI_OFFSET + y * MINI_TILE;
 	draw_y = 0;
+	if (start_x < 0 || start_y < 0 || start_x > MINI_SIZE || start_y > MINI_SIZE)
+		return ;
 	while (draw_y < MINI_TILE)
 	{
 		draw_x = 0;
@@ -42,22 +44,22 @@ static void	draw_square(t_user *user, int x, int y, unsigned int colour)
 	}
 }
 
-static void	draw_player(t_user *user, t_camera *cam, unsigned int colour)
+static void	draw_player(t_user *user, t_vector pos, t_camera *cam)
 {
 	int	start_x;
 	int	start_y;
 	int	draw_x;
 	int	draw_y;
 
-	start_x = MINI_OFFSET + (user->player.pos.x - cam->min.x) * MINI_TILE;
-	start_y = MINI_OFFSET + (user->player.pos.y - cam->min.y) * MINI_TILE;
+	start_x = MINI_OFFSET + (pos.x - cam->min.x) * MINI_TILE - PLAYER_TILE / 2;
+	start_y = MINI_OFFSET + (pos.y - cam->min.y) * MINI_TILE - PLAYER_TILE / 2;
 	draw_y = 0;
 	while (draw_y < PLAYER_TILE)
 	{
 		draw_x = 0;
 		while (draw_x < PLAYER_TILE)
 		{
-			ft_put_pixel(start_x + draw_x, start_y + draw_y, user, colour);
+			ft_put_pixel(start_x + draw_x, start_y + draw_y, user, RED);
 			draw_x++;
 		}
 		draw_y++;
@@ -101,5 +103,5 @@ void	draw_minimap(t_user *user)
 		}
 		y++;
 	}
-	draw_player(user, &cam, RED);
+	draw_player(user, user->player.pos, &cam);
 }

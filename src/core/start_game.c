@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 08:26:56 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/21 11:49:56 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/21 14:49:23 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	game_loop(t_user *user)
 	ft_bzero(user->tex.img.data, SCREEN_HEIGHT * user->tex.img.line);
 	draw_minimap(user);
 	mlx_put_image_to_window(user->mlx, user->mlx_win, user->tex.img.img, 0, 0);
-	
 	return (0);
 }
 
