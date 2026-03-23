@@ -10,7 +10,8 @@ SRC = main.c cleanup.c start_game.c init_data.c init_mlx.c key_hooks.c \
 	set_up_hooks.c valid_file.c collision.c rotation.c \
 	parse_input.c read_file_to_string.c create_and_validate_map.c \
 	create_map.c validate_map.c color_info.c parse_info.c wall_info.c \
-	s_atoi.c move_player.c init_ray.c minimap.c draw_image.c init_camera.c
+	s_atoi.c move_player.c init_ray.c minimap.c draw_image.c init_camera.c \
+	ft_put_pixel.c draw_ray.c
 
 OBJ = $(SRC:%.c=obj/%.o)
 DEP = $(SRC:%.c=obj/%.d)

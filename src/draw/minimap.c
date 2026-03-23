@@ -6,19 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:17:32 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 17:17:08 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/23 15:13:29 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dda.h"
-
-static void	ft_put_pixel(int x, int y, t_user *user, unsigned int colour)
-{
-	int	pos;
-
-	pos = y * user->tex.img.line + x * (user->tex.img.bpp / 8);
-	*(unsigned int *)(user->tex.img.data + pos) = colour;
-}
 
 static void	draw_square(t_user *user, int x, int y, unsigned int colour)
 {
@@ -105,4 +97,5 @@ void	draw_minimap(t_user *user)
 		y++;
 	}
 	draw_player(user, user->player.pos, &cam);
+	draw_ray(user, &cam);
 }

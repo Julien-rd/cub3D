@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/21 11:19:10 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/23 10:06:22 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define FOV_LEN 0.66
 # define SCREEN_WIDTH 800
 # define SCREEN_HEIGHT 600
-# define MOVE_S 0.02
+# define MOVE_S 0.05
 # define ROT_S 0.02
 
 # define SUCCESS 0

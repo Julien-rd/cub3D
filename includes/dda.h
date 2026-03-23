@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:20:01 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/21 17:23:42 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/23 15:42:39 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 
 # define MINI_TILE 8
 # define PLAYER_TILE 4
-# define MINI_SIZE 160
+# define MINI_SIZE 250
 # define MINI_OFFSET 20
+# define VIEW_LENGTH 10
 
 # define RED 0xff0000
 # define GREEN 0x00FF00
@@ -26,6 +27,9 @@
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
 # define GREY 0x555555
+
+# define X_AXIS 1
+# define Y_AXIS 0
 
 typedef struct s_coord
 {
@@ -49,7 +53,20 @@ typedef struct s_camera
 	t_vector	max;
 }	t_camera;
 
+typedef struct	s_line
+{
+	int			A;
+	int			B;
+	int			P;
+	t_coord		start;
+	t_coord		end;
+	t_coord		step;
+	t_coord		dist;
+}	t_line;
+
 void	init_ray(t_user *user, t_dda *ray, int x);
 void	init_camera(t_camera *cam, t_user *user);
+void	ft_put_pixel(int x, int y, t_user *user, unsigned int colour);
+void	draw_ray(t_user *user, t_camera *cam);
 
 #endif
