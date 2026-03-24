@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:17:32 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/24 15:21:31 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:34:17 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static void	draw_square(t_user *user, int x, int y, unsigned int colour)
 	}
 }
 
-static void	draw_player(t_user *user, t_vector pos, t_camera *cam)
+static void	draw_player(t_user *user)
 {
 	t_coord	start;
 	t_coord	draw;
 
-	start.x = MINI_OFFSET + (pos.x - cam->min.x) * MINI_TILE - PLAYER_TILE / 2;
-	start.y = MINI_OFFSET + (pos.y - cam->min.y) * MINI_TILE - PLAYER_TILE / 2;
+	start.x = MINI_OFFSET + MINI_SIZE / 2 - PLAYER_TILE / 2;
+	start.y = MINI_OFFSET + MINI_SIZE / 2 - PLAYER_TILE / 2;
 	draw.y = 0;
 	while (draw.y < PLAYER_TILE)
 	{
@@ -95,6 +95,6 @@ void	draw_minimap(t_user *user)
 		}
 		y++;
 	}
-	draw_player(user, user->player.pos, &cam);
+	draw_player(user);
 	draw_ray(user, &cam);
 }

@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:02:21 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/24 14:39:07 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:36:39 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@
 */
 static void	init_line(t_player p, t_camera *cam, t_line *l)
 {
-	l->start.x = MINI_OFFSET + ((p.pos.x - cam->min.x) * MINI_TILE);
-	l->start.y = MINI_OFFSET + ((p.pos.y - cam->min.y) * MINI_TILE);
+	(void)cam;
+	l->start.x = MINI_OFFSET + MINI_SIZE / 2;
+	l->start.y = MINI_OFFSET + MINI_SIZE / 2 - PLAYER_TILE / 2;
 	l->end.x = l->start.x + (p.dir.x * DIR_LENGTH) * MINI_TILE;
 	l->end.y = l->start.y + (p.dir.y * DIR_LENGTH) * MINI_TILE;
 	l->step.x = (l->end.x > l->start.x) - (l->end.x < l->start.x);
