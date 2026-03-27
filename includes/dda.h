@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:20:01 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/25 12:59:37 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/27 12:39:41 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ typedef struct s_coord
 
 typedef struct s_dda
 {
-	double			camera_x;
-	t_vector		dir;
-	t_vector		delta_dist;
-	t_vector		side_dist;
-	t_coord			map;
-	t_coord			step;
-	t_coord			hit;
+	double		camera_x;
+	t_vector	dir;
+	t_vector	delta_dist;
+	t_vector	side_dist;
+	t_coord		map;
+	t_coord		step;
+	int			hit;
+	int			side;
+	double		perp_dist_wall;
 }	t_dda;
 
 typedef struct s_camera
@@ -69,6 +71,6 @@ void	init_ray(t_user *user, t_dda *ray, int x);
 void	init_camera(t_camera *cam, t_user *user);
 void	ft_put_pixel(int x, int y, t_user *user, unsigned int colour);
 void	draw_ray(t_user *user, t_camera *cam);
-void	dda(t_user *user);
+void	get_rays(t_user *user);
 
 #endif

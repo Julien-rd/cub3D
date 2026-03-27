@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:19:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/24 14:38:50 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/03/27 13:11:37 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_user
 	t_vector	plane;
 	char		**map;
 	char		**info;
-	t_dda		*ray;
+	t_dda		**ray;
 	t_path		path;
 	t_rgb		floor;
 	t_rgb		ceiling;
