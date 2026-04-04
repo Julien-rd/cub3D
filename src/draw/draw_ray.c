@@ -6,13 +6,28 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:02:21 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/27 15:47:30 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/04 05:26:01 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dda.h"
 
-# define DIR_LENGTH 2
+static void	adjust_error(t_line *l)
+{
+	if (l->dist.x > l->dist.y)
+	{
+		l->A = 2 * l->dist.y;
+		l->B = l->A - 2 * l->dist.x;
+		l->P = l->A - l->dist.x;
+	}
+	else
+	{
+		l->A = 2 * l->dist.x;
+		l->B = l->A - 2 * l->dist.y;
+		l->P = l->A - l->dist.y;
+	}
+}
+
 /*
  * Initialises line struct with following variables:
  * We have start coordinate(the player coordinate) and
@@ -42,18 +57,7 @@ static void	init_line(t_player p, t_line *l, t_dda *ray)
 	l->step.y = (l->end.y > l->start.y) - (l->end.y < l->start.y);
 	l->dist.x = abs(l->end.x - l->start.x);
 	l->dist.y = abs(l->end.y - l->start.y);
-	if (l->dist.x > l->dist.y)
-	{
-		l->A = 2 * l->dist.y;
-		l->B = l->A - 2 * l->dist.x;
-		l->P = l->A - l->dist.x;
-	}
-	else
-	{
-		l->A = 2 * l->dist.x;
-		l->B = l->A - 2 * l->dist.y;
-		l->P = l->A - l->dist.y;
-	}
+	adjust_error(l);
 }
 
 static void	draw_line(t_user *user, t_line *line, t_coord *pos, int axis)
