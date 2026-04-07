@@ -6,25 +6,25 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:02:21 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/04 05:26:01 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/07 10:37:39 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dda.h"
 
-static void	adjust_error(t_line *l)
+static void	adjust_error(t_line *line)
 {
-	if (l->dist.x > l->dist.y)
+	if (line->dist.x > line->dist.y)
 	{
-		l->A = 2 * l->dist.y;
-		l->B = l->A - 2 * l->dist.x;
-		l->P = l->A - l->dist.x;
+		line->A = 2 * line->dist.y;
+		line->B = line->A - 2 * line->dist.x;
+		line->P = line->A - line->dist.x;
 	}
 	else
 	{
-		l->A = 2 * l->dist.x;
-		l->B = l->A - 2 * l->dist.y;
-		l->P = l->A - l->dist.y;
+		line->A = 2 * line->dist.x;
+		line->B = line->A - 2 * line->dist.y;
+		line->P = line->A - line->dist.y;
 	}
 }
 
@@ -38,11 +38,10 @@ static void	adjust_error(t_line *l)
  * A, B, P are used for the Bresenham algorithm calculations and
  * are set according to in which direction we will "step".
 */
-static void	init_line(t_player p, t_line *l, t_dda *ray)
+static void	init_line(t_line *l, t_dda *ray)
 {
 	t_coord	map;
 
-	(void)p;
 	map.x = ray->dir.x * ray->perp_dist_wall;
 	map.y = ray->dir.y * ray->perp_dist_wall;
 	l->start.x = MINI_OFFSET + MINI_SIZE / 2;
@@ -62,7 +61,9 @@ static void	init_line(t_player p, t_line *l, t_dda *ray)
 
 static void	draw_line(t_user *user, t_line *line, t_coord *pos, int axis)
 {
-	ft_put_pixel(pos->x, pos->y, user, GREEN);
+	if (pos->x >= MINI_OFFSET && pos->x <= MINI_OFFSET + MINI_SIZE
+		&& pos->y >= MINI_OFFSET && pos->y <= MINI_OFFSET + MINI_SIZE)
+		ft_put_pixel(pos->x, pos->y, user, GREEN);
 	if (axis == X_AXIS)
 		pos->x += line->step.x;
 	else if (axis == Y_AXIS)
@@ -88,8 +89,7 @@ void	draw_ray(t_user *user, t_camera *cam)
 	t_line	line;
 	t_coord	pos;
 
-	(void)cam;
-	init_line(user->player, &line, user->ray[SCREEN_WIDTH - 1]);
+	init_line(&line, user->ray[SCREEN_WIDTH - 1]);
 	pos.x = line.start.x;
 	pos.y = line.start.y;
 	if (line.dist.x > line.dist.y)
