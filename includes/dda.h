@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:20:01 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/07 10:39:08 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/07 14:17:55 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@
 # define PLAYER_TILE 4
 # define MINI_SIZE 184
 # define MINI_OFFSET 20
-# define VIEW_LENGTH 10
 
 # define RED 0xff0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
-# define BLACK 0x000000
 # define WHITE 0xFFFFFF
-# define GREY 0x555555
 
 # define X_AXIS 1
 # define Y_AXIS 0
@@ -66,6 +63,15 @@ typedef struct	s_line
 	t_coord		step;
 	t_coord		dist;
 }	t_line;
+
+typedef struct s_draw
+{
+	int		start;
+	int		end;
+	t_image	*tex;
+	int		tex_x;
+}	t_draw;
+
 
 void	init_ray(t_user *user, t_dda *ray, int x);
 void	init_camera(t_camera *cam, t_user *user);
