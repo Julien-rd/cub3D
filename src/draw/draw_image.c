@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 14:44:11 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/08 13:04:29 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/08 13:47:05 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	draw_vertical(t_user *user, t_dda *ray, int x)
 		y++;		
 	}
 	step = (double)wall.tex->height / wall.line_height;
-	tex_pos = (wall.start - SCREEN_HEIGHT / 2 + wall.line_height / 2) * step;
+	tex_pos = (wall.start - SCREEN_HEIGHT / 2.0 + wall.line_height / 2.0) * step;
 	y = wall.start;
 	while (y <= wall.end)
 	{
