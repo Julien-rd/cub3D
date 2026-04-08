@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 14:44:11 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/08 13:47:05 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/08 16:36:11 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static t_image	*get_texture(t_user *user, t_dda *ray)
 	if (ray->side == 0)
 	{
 		if (ray->dir.x >= 0)
-			return (&user->tex.e);
-		return (&user->tex.w);
+			return (&user->tex.w);
+		return (&user->tex.e);
 	}
 	else
 	{
 		if (ray->dir.y >= 0)
-			return (&user->tex.s);
-		return (&user->tex.n);
+			return (&user->tex.n);
+		return (&user->tex.s);
 	}
 }
 
