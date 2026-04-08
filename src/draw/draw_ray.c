@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:02:21 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/07 10:39:02 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/08 15:21:03 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	draw_ray(t_user *user)
 	t_line	line;
 	t_coord	pos;
 
-	init_line(&line, user->ray[SCREEN_WIDTH - 1]);
+	init_line(&line, user->ray[SCREEN_WIDTH / 2]);
 	pos.x = line.start.x;
 	pos.y = line.start.y;
 	if (line.dist.x > line.dist.y)

@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:03:26 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/03/27 15:46:26 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/08 15:34:43 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	hit_wall(t_user *user, t_dda *ray)
 			ray->hit = 1;
 			break ;
 		}
-		if (user->map[ray->map.y][ray->map.x] != '0')
+		if (user->map[ray->map.y][ray->map.x] == '1')
 			ray->hit = 1;
 	}
 }

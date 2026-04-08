@@ -6,13 +6,13 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:43:04 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/08 12:59:31 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/08 15:33:48 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dda.h"
 
-static void	init_side_dist(t_dda *ray, int pos_x, int pos_y)
+static void	init_side_dist(t_dda *ray, double pos_x, double pos_y)
 {
 	if (ray->dir.x < 0)
 	{
