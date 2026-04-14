@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:20:01 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/13 15:39:51 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/14 12:43:35 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 
 # define X_AXIS 1
 # define Y_AXIS 0
+
+# define FOV 66
+# define PI 3.1415
 
 typedef struct s_coord
 {
@@ -76,7 +79,7 @@ typedef struct s_draw
 void	init_ray(t_user *user, t_dda *ray, int x);
 void	init_camera(t_camera *cam, t_user *user);
 void	ft_put_pixel(int x, int y, t_user *user, unsigned int colour);
-void	draw_ray(t_user *user);
+void	draw_fov(t_user *user);
 void	get_rays(t_user *user);
 
 #endif

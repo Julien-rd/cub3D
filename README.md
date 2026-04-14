@@ -32,16 +32,6 @@ A valid map in Cub3D must follow strict rules to ensure the game behaves correct
 ---
 ## Rendering
 
-### *Line Drawing — Bresenham’s Algorithm*
-
-For drawing lines on the minimap (such as the player’s direction), the project uses Bresenham’s Line Algorithm.
-
-Bresenham’s algorithm is an efficient, integer-based method for rasterizing lines. It determines which pixels best approximate a straight line between two points without using floating-point arithmetic. This makes it ideal for real-time rendering in grid-based systems, ensuring:
-
-- Precision across all directions (360°)
-- Consistent pixel alignment
-- High performance due to integer-only operations
-
 ### *Wall Detection — DDA Algorithm*
 
 To render the 3D scene, Cub3D uses the Digital Differential Analyzer (DDA) algorithm for raycasting.
