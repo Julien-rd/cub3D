@@ -1,0 +1,18 @@
+#ifndef TESTER_H
+# define TESTER_H
+
+# include <unistd.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <strings.h>
+
+typedef struct s_result
+{
+	char	stderr[1024];
+	int		exit_code;
+}	t_result;
+
+int	exec_program(t_result *res, char *const argv[]);
+
+#endif
