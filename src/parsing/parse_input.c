@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:11:39 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/08 16:43:47 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:39:24 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ static void	final_check(t_user *user)
 {
 	if (user->path.we == NULL || user->path.so == NULL || user->path.ea == NULL
 		|| user->path.no == NULL)
-		exit_game(user, ERROR, "Error\nNo path found!");
+		exit_game(user, ERROR, "Error\nNo path found");
 	if (user->start_dir == 'D')
-		exit_game(user, ERROR, "Error\nNo direction found!");
+		exit_game(user, ERROR, "Error\nNo direction found");
 	if (user->floor.red == -1 || user->floor.blue == -1
 		|| user->floor.green == -1)
-		exit_game(user, ERROR, "Error\nNo color found!");
+		exit_game(user, ERROR, "Error\nNo color found");
 	if (user->ceiling.red == -1 || user->ceiling.blue == -1
 		|| user->ceiling.green == -1)
-		exit_game(user, ERROR, "Error\nNo color found!");
+		exit_game(user, ERROR, "Error\nNo color found");
 	if (!user->info || !user->map)
-		exit_game(user, ERROR, "Error\nInvalid input!");
+		exit_game(user, ERROR, "Error\nInvalid info in provided file");
 }
 
 static unsigned int	extract_color(t_rgb color)
@@ -65,7 +65,7 @@ int	parse_input(char *file_name, t_user *user)
 
 	input = read_file_to_string(file_name);
 	if (!input)
-		exit_game(user, ERROR, "Error\nEmpty file !");
+		exit_game(user, ERROR, "Error\nEmpty file");
 	create_and_validate_map(input, user);
 	parse_info(user);
 	final_check(user);

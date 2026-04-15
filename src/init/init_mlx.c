@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 08:19:54 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/16 13:31:35 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:15:43 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static void	open_window(t_user *user)
 {
-	user->mlx = mlx_init();
-	if (!user->mlx)
-		exit_game(user, ERROR, "Error\nmlx_init failed");
 	user->mlx_win = mlx_new_window(user->mlx, SCREEN_WIDTH, SCREEN_HEIGHT,
 			"cub3D");
 	if (!user->mlx_win)
@@ -27,7 +24,7 @@ static void	open_window(t_user *user)
 	user->tex.img.data = mlx_get_data_addr(user->tex.img.img,
 			&user->tex.img.bpp, &user->tex.img.line, &user->tex.img.endian);
 	if (!user->tex.img.data)
-		exit_game(user, ERROR, "Error\nmlx_get_data_addr nofailed");
+		exit_game(user, ERROR, "Error\nmlx_get_data_addr failed");
 }
 
 static void	load_textures(t_user *user)
@@ -60,6 +57,9 @@ static void	load_textures(t_user *user)
 
 void	init_graphics(t_user *user)
 {
-	open_window(user);
+	user->mlx = mlx_init();
+	if (!user->mlx)
+		exit_game(user, ERROR, "Error\nmlx_init failed");
 	load_textures(user);
+	open_window(user);
 }
