@@ -1,4 +1,3 @@
-#include <criterion/criterion.h>
 #include "tester.h"
 
 t_result	run_cub3d(char *file)

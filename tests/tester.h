@@ -6,6 +6,7 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <strings.h>
+# include <criterion/criterion.h>
 
 typedef struct s_result
 {
