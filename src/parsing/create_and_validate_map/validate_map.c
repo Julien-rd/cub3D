@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/15 15:40:54 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:57:40 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	valid_map(t_user *user)
 	while (user->map[i])
 	{
 		if (valid_line(user, i) == 1)
-			exit_game(user, ERROR, "Error\nInvalid info in provided file");
+			exit_game(user, ERROR, "Invalid info in provided file");
 		i++;
 	}
 }

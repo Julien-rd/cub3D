@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/24 14:35:24 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/15 15:52:51 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	check_extensions(t_user *user, char *path);
 int		parse_input(char *file_name, t_user *user);
 
 // read_file_to_string
-char	*read_file_to_string(char *file_name);
+char	*read_file_to_string(t_user *user, char *file_name);
 
 //*************** RENDER **************//
 

@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:02:58 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 15:57:15 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/15 16:08:02 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,21 @@
 
 void	check_extensions(t_user *user, char *path)
 {
-	size_t	len;
+	char	*ret;
 
-	len = ft_strlen(path);
-	if (len < 5)
-		exit_game(user, ERROR, "Error\nWrong path extension!");
-	if (ft_strncmp(".xpm", &path[len - 4], 4) != 0)
-		exit_game(user, ERROR, "Error\nWrong path extension!");
+	ret = ft_strnstr(path, ".xpm", ft_strlen(path));
+	if (!ret)
+		exit_game(user, ERROR, "Wrong texture file extension");
+	if (ft_strlen(ret) > 4)
+		exit_game(user, ERROR, "Wrong texture file extension");
+	ret = ft_strrchr(path, '/');
+	if (ret)
+	{
+		if (ft_strlen(ret + 1) < 5)
+			exit_game(user, ERROR, "Wrong texture file extension");
+	}
+	if (ft_strlen(path) < 5)
+		exit_game(user, ERROR, "Wrong texture file extension");
 }
 
 void	extract_line(t_user *user, size_t pos)

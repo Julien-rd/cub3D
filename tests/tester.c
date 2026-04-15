@@ -12,6 +12,22 @@ t_result	run_cub3d(char *file)
 	return (res);
 }
 
+Test(invalid, wrong_xpm_extension)
+{
+	t_result res = run_cub3d("./maps/invalid/invalid_xpm_extension.cub");
+
+	cr_assert_eq(res.exit_code, 1);
+	cr_assert_str_eq(res.stderr, "Error\nWrong texture file extension\n");
+}
+
+Test(invalid, file_doesnt_exist)
+{
+	t_result res = run_cub3d("no.cub");
+
+	cr_assert_eq(res.exit_code, 1);
+	cr_assert_str_eq(res.stderr, "Error\nopen: No such file or directory\n");
+}
+
 Test(invalid, empty_file)
 {
 	t_result res = run_cub3d("./maps/invalid/empty.cub");
@@ -77,15 +93,13 @@ Test(invalid, empty_xpm_file)
 	cr_assert_str_eq(res.stderr, "Error\nFailed to load north texture\n");
 }
 
-//This test is to be added after the bug with hidden files is fixed.
+Test(invalid, linked_hidden_file_xpm)
+{
+	t_result res = run_cub3d("link_xpm_file.cub");
 
-// Test(invalid, linked_hidden_file_xpm)
-// {
-// 	t_result res = run_cub3d("link_xpm_file.cub");
-
-// 	cr_assert_eq(res.exit_code, 1);
-// 	cr_assert_str_eq(res.stderr, "Error\nInvalid input!\n");
-// }
+	cr_assert_eq(res.exit_code, 1);
+	cr_assert_str_eq(res.stderr, "Error\nWrong texture file extension\n");
+}
 
 Test(invalid, invalid_char_in_map)
 {
