@@ -5,6 +5,7 @@
 # define FLAG2 "--quiet"
 # define FLAG3 "--error-exitcode=1"
 # define FLAG4 "--errors-for-leak-kinds=all"
+# define FLAG5 "--trace-children=yes"
 # define PROG "./cub3D"
 
 t_result	run_cub3d(char **argv)
@@ -18,7 +19,7 @@ t_result	run_cub3d(char **argv)
 
 Test(invalid, wrong_xpm_extension)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/invalid_xpm_extension.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/invalid_xpm_extension.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -28,7 +29,7 @@ Test(invalid, wrong_xpm_extension)
 
 Test(invalid, file_doesnt_exist)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "no.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "no.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -38,7 +39,7 @@ Test(invalid, file_doesnt_exist)
 
 Test(invalid, empty_file)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/empty.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/empty.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -48,7 +49,7 @@ Test(invalid, empty_file)
 
 Test(invalid, no_map)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/no_map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/no_map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -58,7 +59,7 @@ Test(invalid, no_map)
 
 Test(cub3d, wrong_extension_cubb)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/invalid_extension.cubbb", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/invalid_extension.cubbb", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -68,7 +69,7 @@ Test(cub3d, wrong_extension_cubb)
 
 Test(invalid, no_args)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -78,7 +79,7 @@ Test(invalid, no_args)
 
 Test(invalid, empty_arg)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -88,7 +89,7 @@ Test(invalid, empty_arg)
 
 Test(invalid, hidden_file_in_folder)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -98,7 +99,7 @@ Test(invalid, hidden_file_in_folder)
 
 Test(invalid, hidden_file)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, ".cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, ".cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -108,7 +109,7 @@ Test(invalid, hidden_file)
 
 Test(invalid, empty_xpm_file)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/empty_xpm_file.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/empty_xpm_file.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -118,7 +119,7 @@ Test(invalid, empty_xpm_file)
 
 Test(invalid, linked_hidden_file_xpm)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/link_xpm_file.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/link_xpm_file.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -128,7 +129,7 @@ Test(invalid, linked_hidden_file_xpm)
 
 Test(invalid, invalid_char_in_map)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/invalid_char_in_map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/invalid_char_in_map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -138,7 +139,7 @@ Test(invalid, invalid_char_in_map)
 
 Test(invalid, wrong_extension_txt)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/invalid_extension.txt", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/invalid_extension.txt", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -148,7 +149,7 @@ Test(invalid, wrong_extension_txt)
 
 Test(invalid, misplaced_info)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/misplaced_info.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/misplaced_info.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -158,7 +159,7 @@ Test(invalid, misplaced_info)
 
 Test(invalid, missing_texture)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/missing_texture.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/missing_texture.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -168,7 +169,7 @@ Test(invalid, missing_texture)
 
 Test(invalid, only_map)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/only_map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/only_map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -178,7 +179,7 @@ Test(invalid, only_map)
 
 Test(invalid, player_out_of_map)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/player_out_of_map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/player_out_of_map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -188,7 +189,7 @@ Test(invalid, player_out_of_map)
 
 Test(invalid, random_content)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/random_content.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/random_content.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -198,7 +199,7 @@ Test(invalid, random_content)
 
 Test(invalid, space_in_colour)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/space_in_color.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/space_in_color.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -208,7 +209,7 @@ Test(invalid, space_in_colour)
 
 Test(invalid, space_in_map)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/space_in_map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/space_in_map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -218,7 +219,7 @@ Test(invalid, space_in_map)
 
 Test(invalid, multiple_maps)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/invalid/multiple_maps.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/invalid/multiple_maps.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -228,7 +229,7 @@ Test(invalid, multiple_maps)
 
 Test(invalid, random_word_arg)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "lalalala", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "lalalala", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -238,7 +239,7 @@ Test(invalid, random_word_arg)
 
 Test(invalid, multiple_map_args)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/valid/map.cub", "maps/valid/map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/valid/map.cub", "maps/valid/map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
@@ -248,7 +249,7 @@ Test(invalid, multiple_map_args)
 
 Test(invalid, multiple_map_args_in_one_arg)
 {
-	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, PROG, "maps/valid/map.cub maps/valid/map.cub", NULL};
+	char *argv[] = {VAL, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, PROG, "maps/valid/map.cub maps/valid/map.cub", NULL};
 	t_result res = run_cub3d(argv);
 
 	cr_assert_eq(res.exit_code, 1);
