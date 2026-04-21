@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:01:41 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/21 13:03:39 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/21 13:19:40 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	check_2dlen(t_user *user, char **colors)
 		iter++;
 	if (iter != 3)
 		return (free2d(colors), exit_game(user, ERROR,
-				"Invalid colour description: need 3 values for rgb"));
+				"Invalid colour: more/less than 3 numbers specified"));
 }
 
 static char	**prepare_color_info(t_user *user, size_t pos)
@@ -62,7 +62,7 @@ static void	validate_colors(t_user *user, char **colors)
 		{
 			if (!ft_isdigit(colors[row][col]))
 				return (free2d(colors), exit_game(user, ERROR,
-						"Invalid colour description: should be only digits"));
+						"Invalid colour: non-digit char found in number"));
 			col++;
 		}
 		row++;
@@ -79,7 +79,7 @@ static void	convert_colors(t_user *user, char **colors, char flag)
 		if (user->floor.red == -1 || user->floor.blue == -1
 			|| user->floor.green == -1)
 			return (free2d(colors), exit_game(user, ERROR,
-					"Invalid colour description: wrong number for floor"));
+					"Invalid colour: F rgb number out of range[0,255]"));
 	}
 	if (flag == 'C')
 	{
@@ -89,7 +89,7 @@ static void	convert_colors(t_user *user, char **colors, char flag)
 		if (user->ceiling.red == -1 || user->ceiling.blue == -1
 			|| user->ceiling.green == -1)
 			return (free2d(colors), exit_game(user, ERROR,
-					"Invalid colour description: wrong number for ceiling"));
+					"Invalid colour: C rgb number out of range[0, 255]"));
 	}
 }
 

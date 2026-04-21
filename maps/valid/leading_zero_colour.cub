@@ -3,7 +3,7 @@ SO ./textures/Wall7.xpm
 WE ./textures/Wall4.xpm
 EA ./textures/Wall8.xpm
 
-F , 123, 123
+F 123, 0000123, 25
 C 123, 123, 100
 
 
