@@ -28,10 +28,7 @@ int	exec_program(t_result *res, char *const argv[])
 			return (close(fd[0]), -1);
 	}
 	else
-	{
-		res->exit_code = 128;
 		return (close(fd[0]), -1);
-	}
 	if (read(fd[0], res->stderr, sizeof(res->stderr)) == -1)
 		return (close(fd[0]), close(fd[1]), -1);
 	close(fd[0]);
