@@ -9,7 +9,7 @@
 # include <criterion/criterion.h>
 # include <stdio.h>
 
-# define PROG "../cub3D"
+# define PROG "./cub3D"
 
 typedef struct s_result
 {

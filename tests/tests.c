@@ -279,3 +279,23 @@ Test(invalid, empty_rgb_value)
 	check_invalid(res);
 	printf("Test: empty_rgb_value passed ✅\n");
 }
+
+Test(invalid, no_space_after_element_colour)
+{
+	t_result	res;
+	char *args[] = {"maps/invalid/no_space_after_element_colour.cub", NULL};
+	res = run_cub3d(args);
+
+	check_invalid(res);
+	printf("Test: no_space_after_element_colour passed ✅\n");
+}
+
+Test(invalid, no_space_after_element_texture)
+{
+	t_result	res;
+	char *args[] = {"maps/invalid/no_space_after_element_texture.cub", NULL};
+	res = run_cub3d(args);
+
+	check_invalid(res);
+	printf("Test: no_space_after_element_texture passed ✅\n");
+}

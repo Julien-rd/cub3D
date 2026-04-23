@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:30:19 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/21 12:56:47 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/23 15:41:21 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	parse_info(t_user *user)
 						3) == 0) && (!user->path.we)) || ((ft_strncmp("EA ",
 						user->info[i], 3) == 0) && (!user->path.ea)))
 			extract_line(user, i);
-		else if ((ft_strncmp("F", user->info[i], 1) == 0
-				&& user->floor.blue == -1) || (ft_strncmp("C", user->info[i],
-					1) == 0 && user->ceiling.blue == -1))
+		else if ((ft_strncmp("F ", user->info[i], 2) == 0
+				&& user->floor.blue == -1) || (ft_strncmp("C ", user->info[i],
+					2) == 0 && user->ceiling.blue == -1))
 			color_info(user, user->info[i][0], i);
 		else if (user->info[i][skip_spaces(user->info[i])] == '1')
 			return ;
