@@ -299,3 +299,13 @@ Test(invalid, no_space_after_element_texture)
 	check_invalid(res);
 	printf("Test: no_space_after_element_texture passed ✅\n");
 }
+
+Test(valid, map)
+{
+	t_result	res;
+	char *args[] = {"maps/valid/map.cub", NULL};
+	res = run_cub3d(args);
+
+	check_valid(res);
+	printf("Test: map.cub passed ✅\n");
+}

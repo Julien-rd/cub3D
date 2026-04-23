@@ -14,7 +14,7 @@ VPATH = src bonus src/core src/init src/movement src/parsing \
 
 TEST_NAME = tester
 TEST_SRC = tests/tests.c tests/exec_program.c \
-		tests/check_invalid.c tests/run_cub3d.c
+		tests/check_invalid.c tests/run_cub3d.c tests/check_valid.c
 TEST_OBJ = $(TEST_SRC:%.c=$(OBJ_DIR)/%.o)
 TEST_DEP = $(TEST_SRC:%.c=$(OBJ_DIR)/%.d)
 TEST_CFLAGS = -MMD
