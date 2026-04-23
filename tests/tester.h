@@ -15,6 +15,8 @@ typedef struct s_result
 	int		exit_code;
 }	t_result;
 
-int	exec_program(t_result *res, char *const argv[]);
+int			exec_program(t_result *res, char *const argv[]);
+t_result	run_cub3d(char **argv);
+void		check_invalid(t_result res);
 
 #endif
