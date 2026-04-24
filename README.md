@@ -89,6 +89,10 @@ or for bonus:
 ```
 #### *Note:* in `maps/` there are examples of valid/invalid maps that could be used instead of <map.cub>.
 
+## Testing
+For testing the parsing of this project a tester was created using `Criterion`. \
+[Cub3D tester](https://github.com/VestaManuyko/Cub3D_tester)
+
 ## Recourses
 
 In this project AI was used for: 
