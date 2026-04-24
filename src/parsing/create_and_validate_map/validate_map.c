@@ -35,10 +35,10 @@ static int	should_be_a_wall(t_user *user, size_t x, size_t y)
 		return (valid_char(user->map[y][x]));
 	if (user->map[y - 1][x] == ' ' || user->map[y + 1][x] == ' ')
 		return (valid_char(user->map[y][x]));
-	if (user->map[y - 1][x + 1] == ' ' || user->map[y + 1][x + 1] == ' ')
-		return (valid_char(user->map[y][x]));
-	if (user->map[y - 1][x - 1] == ' ' || user->map[y + 1][x - 1] == ' ')
-		return (valid_char(user->map[y][x]));
+	// if (user->map[y - 1][x + 1] == ' ' || user->map[y + 1][x + 1] == ' ')
+	// 	return (valid_char(user->map[y][x]));
+	// if (user->map[y - 1][x - 1] == ' ' || user->map[y + 1][x - 1] == ' ')
+	// 	return (valid_char(user->map[y][x]));
 	if (user->map[y][x - 1] == ' ' || user->map[y][x + 1] == ' ')
 		return (valid_char(user->map[y][x]));
 	return (0);
