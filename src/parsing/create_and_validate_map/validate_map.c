@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
+/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 18:07:09 by jromann          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int	should_be_a_wall(t_user *user, size_t x, size_t y)
 		return (valid_char(user->map[y][x]));
 	line_len_above = ft_strlen(user->map[y - 1]);
 	line_len_below = ft_strlen(user->map[y + 1]);
-	if (line_len_above <= x + 1 || line_len_below <= x + 1)
+	if ((line_len_above > x && user->map[y - 1][x] == ' ') || (line_len_below > x && user->map[y + 1][x] == ' '))
 		return (valid_char(user->map[y][x]));
-	if (user->map[y - 1][x] == ' ' || user->map[y + 1][x] == ' ')
+	if(line_len_above <= x || line_len_below <= x)
 		return (valid_char(user->map[y][x]));
 	if (user->map[y][x - 1] == ' ' || user->map[y][x + 1] == ' ')
 		return (valid_char(user->map[y][x]));
