@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:41:57 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/27 18:07:09 by jromann          ###   ########.fr       */
+/*   Updated: 2026/04/27 19:01:04 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,22 @@ static int	should_be_a_wall(t_user *user, size_t x, size_t y)
 {
 	size_t	line_len_above;
 	size_t	line_len_below;
+	int		ret;
 
+	ret = valid_char(user->map[y][x]);
 	if (x == 0 || y == 0)
-		return (valid_char(user->map[y][x]));
+		return (ret);
 	if (user->map[y + 1] == NULL || user->map[y][x + 1] == '\0')
-		return (valid_char(user->map[y][x]));
+		return (ret);
 	line_len_above = ft_strlen(user->map[y - 1]);
 	line_len_below = ft_strlen(user->map[y + 1]);
-	if ((line_len_above > x && user->map[y - 1][x] == ' ') || (line_len_below > x && user->map[y + 1][x] == ' '))
-		return (valid_char(user->map[y][x]));
-	if(line_len_above <= x || line_len_below <= x)
-		return (valid_char(user->map[y][x]));
+	if ((line_len_above > x && user->map[y - 1][x] == ' ')
+		|| (line_len_below > x && user->map[y + 1][x] == ' '))
+		return (ret);
+	if (line_len_above <= x || line_len_below <= x)
+		return (ret);
 	if (user->map[y][x - 1] == ' ' || user->map[y][x + 1] == ' ')
-		return (valid_char(user->map[y][x]));
+		return (ret);
 	return (0);
 }
 
