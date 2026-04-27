@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:14:03 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:02:02 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	exit_game(t_user *user, int flag, char *msg)
 	int	i;
 
 	i = 0;
-	cleanup_mlx(user);
 	free2d(user->info);
 	free2d(user->map);
 	if (user->ray)
@@ -62,6 +61,7 @@ void	exit_game(t_user *user, int flag, char *msg)
 			free(user->ray[i++]);
 		free(user->ray);
 	}
+	cleanup_mlx(user);
 	if (flag == PERROR || flag == ERROR)
 	{
 		ft_putendl_fd("Error", 2);
