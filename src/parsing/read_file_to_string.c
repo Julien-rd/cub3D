@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:49:34 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:44:10 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static char	*ft_realloc(char *in_str, size_t size)
 	iter = 0;
 	ret_str = ft_calloc(size + 1, sizeof(char));
 	if (!ret_str)
-		return (perror("ft_realloc"), free(in_str), NULL);
+	{
+		free(in_str);
+		return (NULL);
+	}
 	if (in_str == NULL)
 		return (ret_str);
 	while (in_str[iter] && iter < size - 1)
@@ -32,17 +35,16 @@ static char	*ft_realloc(char *in_str, size_t size)
 	return (ret_str);
 }
 
-static int	s_read(int fd, char *buffer, char *input)
+static int	s_read(int fd, char *buffer, char *input, t_user *user)
 {
 	int	bytes_read;
 
 	bytes_read = read(fd, buffer, 1024);
 	if (bytes_read == -1)
 	{
-		perror("read");
 		close(fd);
 		free(input);
-		exit(1);
+		exit_game(user, PERROR, "read");
 	}
 	buffer[bytes_read] = '\0';
 	return (bytes_read);
@@ -75,12 +77,12 @@ char	*read_file_to_string(t_user *user, char *file_name)
 		exit_game(user, PERROR, "open");
 	while (1)
 	{
-		bytes_read = s_read(fd, buffer, input);
+		bytes_read = s_read(fd, buffer, input, user);
 		if (bytes_read == 0)
 			break ;
 		input = ft_realloc(input, bytes_read + input_len);
 		if (!input)
-			return (close(fd), exit(1), NULL);
+			return (close(fd), exit_game(user, PERROR, "ft_realloc"), NULL);
 		ft_strcpy(&input[input_len], buffer);
 		input_len = ft_strlen(input);
 	}
