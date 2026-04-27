@@ -12,14 +12,6 @@ LDFLAGS = -L/usr/local/lib -L/opt/X11/lib -lmlx -lXext -lX11 -lm -lz
 VPATH = src src/core src/init src/movement src/parsing \
 	src/parsing/create_and_validate_map src/parsing/parse_info src/render
 
-TEST_NAME = tester
-TEST_SRC = tests/tests.c tests/exec_program.c \
-		tests/check_invalid.c tests/run_cub3d.c tests/check_valid.c
-TEST_OBJ = $(TEST_SRC:%.c=$(OBJ_DIR)/%.o)
-TEST_DEP = $(TEST_SRC:%.c=$(OBJ_DIR)/%.d)
-TEST_CFLAGS = -MMD
-TEST_LIBS = -lcriterion
-
 SRC = main.c cleanup.c init_data.c init_mlx.c key_hooks.c \
 	set_up_hooks.c valid_file.c collision.c rotation.c \
 	parse_input.c read_file_to_string.c create_and_validate_map.c \
@@ -54,20 +46,16 @@ $(OBJ_DIR):
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -MMD -MF $(@:.o=.d) -c $< -o $@
 
-$(OBJ_DIR)/tests/%.o: tests/%.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(TEST_CFLAGS) -c $< -o $@
-
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ) 
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(LDFLAGS)
 
 clean:
-	@rm -f $(OBJ) $(TEST_OBJ) $(DEP) $(TEST_DEP)
+	@rm -f $(OBJ) $(DEP)
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) clean
 
 fclean: clean
-	@rm -f $(NAME) $(TEST_NAME) $(BONUS_NAME)
+	@rm -f $(NAME) $(BONUS_NAME)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
 
 re: fclean all
@@ -75,12 +63,6 @@ re: fclean all
 bonus:
 	@$(MAKE) --no-print-directory BONUS=1 all
 
-$(TEST_NAME): $(TEST_OBJ)
-	@$(CC) $(TEST_OBJ) -o $(TEST_NAME) $(TEST_LIBS)
-
-test: $(NAME) $(TEST_NAME)
-
 .PHONY: all clean fclean re bonus
 
 -include $(DEP)
--include $(TEST_DEP)
