@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pixel.c                                     :+:      :+:    :+:   */
+/*   check_commas.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/23 12:11:44 by vmanuyko          #+#    #+#             */
+/*   Created: 2026/04/27 14:42:34 by vmanuyko          #+#    #+#             */
 /*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dda.h"
+#include "cub3d.h"
 
-void	ft_put_pixel(int x, int y, t_user *user, unsigned int colour)
+int	check_commas(char *s)
 {
-	int	pos;
+	char	*ret;
+	char	*tmp;
+	int		i;
 
-	pos = y * user->tex.img.line + x * (user->tex.img.bpp / 8);
-	*(unsigned int *)(user->tex.img.data + pos) = colour;
+	i = 0;
+	ret = ft_strchr(s, ',');
+	while (ret)
+	{
+		tmp = ret + 1;
+		ret = ft_strchr(tmp, ',');
+		i++;
+	}
+	if (i > 2)
+		return (-1);
+	return (0);
 }

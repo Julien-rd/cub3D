@@ -6,11 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 18:22:27 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/13 18:22:30 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:22:50 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dda.h"
+#include "dda.h"
 
 static void	draw_square(t_user *user, int x, int y, unsigned int colour)
 {

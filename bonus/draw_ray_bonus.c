@@ -6,11 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 18:22:16 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/14 13:34:19 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:22:56 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dda.h"
+#include "dda.h"
 
 /*
  * Initialises line struct with following variables:

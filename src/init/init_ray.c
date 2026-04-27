@@ -6,11 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:43:04 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/08 15:33:48 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dda.h"
+#include "dda.h"
 
 static void	init_side_dist(t_dda *ray, double pos_x, double pos_y)
 {

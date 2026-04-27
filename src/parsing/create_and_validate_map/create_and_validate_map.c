@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   create_and_validate_map.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jromann <jromann@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:56:37 by jromann           #+#    #+#             */
-/*   Updated: 2026/03/12 09:39:56 by jromann          ###   ########.fr       */
+/*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "cub3d.h"
 
 void	create_and_validate_map(char *input, t_user *user)
 {

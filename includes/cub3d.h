@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:18:23 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/21 14:32:04 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:21:47 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	check_empty_lines(char *map, char *input, t_user *user);
 void	valid_map(t_user *user);
 
 // parse_info/color_info
+int		check_commas(char *s);
 void	color_info(t_user *user, char flag, size_t pos);
 
 // parse_info/parse_info

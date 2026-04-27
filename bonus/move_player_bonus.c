@@ -6,11 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:44:16 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/14 14:44:18 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:23:58 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	move_player(t_user *user)
 {

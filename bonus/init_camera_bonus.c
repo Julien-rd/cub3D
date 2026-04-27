@@ -6,11 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:30:19 by vmanuyko          #+#    #+#             */
-/*   Updated: 2026/04/14 14:30:21 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:22:53 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dda.h"
+#include "dda.h"
 
 void	init_camera(t_camera *cam, t_user *user)
 {

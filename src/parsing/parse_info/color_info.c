@@ -6,11 +6,11 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:01:41 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/27 11:54:58 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 15:02:07 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "cub3d.h"
 
 static void	check_2dlen(t_user *user, char **colors)
 {
@@ -22,25 +22,6 @@ static void	check_2dlen(t_user *user, char **colors)
 	if (i != 3)
 		return (free2d(colors), exit_game(user, ERROR,
 				"Invalid colour: not 3 rgb values specified"));
-}
-
-static int	check_commas(char *s)
-{
-	char	*ret;
-	char	*tmp;
-	int		i;
-
-	i = 0;
-	ret = ft_strchr(s, ',');
-	while (ret)
-	{
-		tmp = ret + 1;
-		ret = ft_strchr(tmp, ',');
-		i++;
-	}
-	if (i > 2)
-		return (-1);
-	return (0);
 }
 
 static char	**prepare_color_info(t_user *user, size_t pos)
