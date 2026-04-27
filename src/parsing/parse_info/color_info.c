@@ -6,7 +6,7 @@
 /*   By: vmanuyko <vmanuyko@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 17:01:41 by jromann           #+#    #+#             */
-/*   Updated: 2026/04/21 16:20:00 by vmanuyko         ###   ########.fr       */
+/*   Updated: 2026/04/27 11:54:58 by vmanuyko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	check_2dlen(t_user *user, char **colors)
 		i++;
 	if (i != 3)
 		return (free2d(colors), exit_game(user, ERROR,
-				"Invalid colour: more/less than 3 numbers specified"));
+				"Invalid colour: not 3 rgb values specified"));
 }
 
 static int	check_commas(char *s)
